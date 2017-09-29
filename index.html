@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VueJS Training</title>
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/pikestreet.css">
+<link rel="stylesheet" href="css/github.css">
+<!-- Printing and PDF exports -->
+<script>
+var link  = document.createElement( 'link' );
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+<script src="https://unpkg.com/vue"></script>  
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+  <section>
+    <section data-background-image="img/vue-bg.png">
+      <h2>VueJS</h2>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue</h2>
+      <ul>
+        <li>Framework(/Library) to create components</li>
+        <li>Easy to use, straightforward syntax</li>
+        <li>Use declarative rendering</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Who's using VueJS</h2>
+      <ul>
+        <li>Gitlab</li>
+        <li>Laravel website</li>
+        <li>Baidu</li>
+        <li>Alibaba</li>
+        <li>Tencent</li>
+        <li>Xiaomi</li>
+        <li>Expedia</li>
+        <li><a href="https://newsfeed.fb.com">...and Facebook!</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>(quick) Setup</h2>
+      <pre class="fragment"><code data-trim>
+          <script src="https://unpkg.com/vue"></script>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  {{ message }}
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello hostel!'
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Declarative</h2>
+      <h4>Tell <b>WHAT</b> you render instead of <b>HOW</b></h4>
+      <img src="./img/complex-simple.gif" alt="simple">
+    </section>
+    <section>
+      <h2>Declarative rendering</h2>
+      <img src="./img/reactive-rendering.png" alt="declarative rendering">
+    </section>
+    <section>
+      <h2>DevTools</h2>
+      <img src="./img/devtool.png" alt="declarative rendering" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-1.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-2.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-3.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-4.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-5.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section id="virtualdom">
+      <h2>Virtual DOM: Example</h2>
+      <div id="counterDemo">
+        <p>Counter: <span>{{ counter }}</span></p>
+        <p><i>(open Chrome DevTools)</i></p>
+      </div>
+      <script>
+window.onload = () => {
+  Reveal.addEventListener('slidechanged', (event) => {
+    if (event.currentSlide.id === 'virtualdom') {
+      counterDemo.counter = 0
+    }
+  })
+}
+
+var counterDemo = new Vue({
+  el: '#counterDemo',
+  data: {
+    counter: 0
+  },
+  created() {
+    setInterval(() => {
+      this.counter++
+    }, 1000)
+  }
+})
+      </script>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>The Vue Syntax</h2>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-if</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ property.name }}</h2>
+    <a v-if="property.availability">Book now</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    property: {
+      name: 'Happy Hostel',
+      availability: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-else</h2>
+      <pre><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ property.name }}</h2>
+    <a v-if="property.availability">Book now</a>
+    <a v-else="property.availability" disabled>Too late!</a>
+  </div>
+</div>
+      </code></pre>
+      <pre><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    property: {
+      name: 'Happy Hostel',
+      availability: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+  <section>
+      <h2>Conditional rendering: v-show</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-show="property.isActive">
+    <h2>{{ property.name }}</h2>
+    <a v-if="property.availability">Book now</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    property: {
+      name: 'Happy Hostel',
+      availability: true,
+      isActive: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Loops: v-for</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-for="property in properties">
+    <h2>{{ property.name }}</h2>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    properties: [
+      { name: 'Happy Hostel' },
+      { name: 'Awesome Hostel' },
+      { name: 'Another Hostel' }
+    ]
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Form Input Bindings: v-model</h2>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+<input v-model="message" placeholder="edit me">
+<p>Message is: {{ message }}</p>
+      </code></pre>
+
+      <h4 class="fragment" data-fragment-index="1">Example:</h4>
+      <div id="vue-model" class="fragment" data-fragment-index="1">
+        <input v-model="message" placeholder="edit me">
+        <p>Message: <span style="color: #42b983;">{{ message }}</span></p>
+      </div>
+      <script>
+var vueModel = new Vue({
+  el: '#vue-model',
+  data: {
+    message: 'Long live v-model!'
+  }
+})
+      </script>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Wait... I've to put everything on the same vue?</h2>
+      <h3 class="fragment">Nope.</h3>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>A world of components</h2>
+      <img src="https://media1.giphy.com/media/l0JMrPWRQkTeg3jjO/giphy.gif">
+    </section>
+    <section>
+      <h2>What is a component?</h2>
+      <img src="./img/components.png" alt="components">
+    </section>
+    <section>
+      <h2>Communication between components</h2>
+      <img src="./img/communication.png">
+    </section>
+    <section>
+      <h2>our first component</h2>
+      <pre class="fragment"><code data-trim>
+Vue.component('property-detail', {
+  template: `<div>I'm a property!</div>`
+})
+
+new Vue({
+  el: '#app'
+})
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <property-detail></property-detail>
+</div>
+      </code></pre>
+    </section>
+    <section>
+      <h2>Lifecycle</h2>
+    </section>
+    <section>
+      <h2>Passing properties</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <property-detail v-bind:name="'Cool property'"></property-detail>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+Vue.component('property-detail', {
+  template: `<div>Property: {{ name }}</div>`,
+  props: ['name']
+})
+      </code></pre>
+      <p class="fragment">shortcut: <code>:name="'Cool property'"</code></p>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>The .vue File</h2>
+    </section>
+    <section>
+      <img src="./img/vue-file.png" alt="vue file" style="width: 50%;">
+    </section>
+    <section>
+      <h2>What's the magic behind</h2>
+      <img src="./img/webpack.png" alt="vue file" style="width: 50%;">
+    </section>
+    <section>
+      <h2>Benefit: Hot reload ❤️</h2>
+      <img src="./img/vue-hot.gif">
+      <p><i>hot reload > live reload</i></p>
+    </section>
+    <section>
+      <h2>Separation of concerns</h2>
+      <img src="./img/separation-concerns-1.png" alt="Separation of concerns" class="fragment" style="width: 45%;">
+      <img src="./img/separation-concerns-2.png" alt="Separation of concerns" class="fragment" style="width: 40%;">
+    </section>
+    <section>
+      <h2>Getting started!</h2>
+      <pre><code data-trim>
+npm install -g vue-cli
+vue init webpack my-project
+cd my-project
+npm install
+npm run dev # ready to go!
+      </code></pre>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: HTTP</h2>
+      <h3><a href="https://github.com/axios/axios"><i class="fa fa-github" aria-hidden="true"></i> axios/axios</a></h3>
+    </section>
+    <section>
+      <h2>File architecture</h2>
+      <pre><code data-trim>
+├── src/
+│   ├── main.js
+│   ├── App.vue
+│   └── api/
+│       ├── bookings.js
+│       ├── hostel.js
+│       └── user.js
+│   └── components/
+│       └── ...
+│   └── .../
+│       └── ...
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example (1/2)</h2>
+      <pre><code data-trim>
+// src/api/hostel.js
+import axios from 'axios'
+
+export function findAll (limit = 25) {
+  return axios.get('hostels/?limit=' + limit)
+              .then(response => response.data)
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example (2/2)</h2>
+      <pre><code data-trim>
+import * as hostelApi from '../api/hostels'
+
+export default {
+  data: function () {
+    return {
+      hostels: []
+    }
+  },
+  created () {
+    hostelApi.findAll().then((data) => {
+      this.hostels = data
+    })
+  }
+}
+      </code></pre>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: Routing</h2>
+      <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vue-router</a></h3>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: State Management</h2>
+      <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vuex</a></h3>
+    </section>
+    <section>
+      <h2>Why you need a state managemet library?</h2>
+      <img src="./img/state-management.png" alt="">
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: Testing</h2>
+      <h3><a href="https://github.com/facebook/jest"><i class="fa fa-globe" aria-hidden="true"></i> Jest</a></h3>
+      <img src="./img/jest.png" alt="">
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: SSR</h2>
+      <h3><a href="https://ssr.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> Vue-SSR</a></h3>
+    </section>
+    <section>
+      <h2>Client Side Rendering (CSR)</h2>
+      <img src="./img/csr.png">
+    </section>
+    <section>
+      <h2>Server Side Rendering (SSR)</h2>
+      <img src="./img/ssr.png">
+    </section>
+    <section>
+      <h2>Reading</h2>
+      <h4>
+        <a href="https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8">
+          <i class="fa fa-medium" aria-hidden="true"></i> The Benefits of Server Side Rendering Over Client Side Rendering <br>- by Alex Grigoryan
+        </a>
+    </h4>
+    </section>
+  </section>
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: false,
+  progress: true,
+  slideNumber: true,
+  history: true,
+
+  transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+// Optional reveal.js plugins
+dependencies: [
+  { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+  { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+  { src: 'reveal.js/plugin/notes/notes.js', async: true }
+]
+});
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67868977-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<style>
+  .reveal section img {
+    margin: 0; background:none; border: 0; box-shadow: none; 
+  }
+</style>
+</body>
+</html>

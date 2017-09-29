@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+  <title>demo VueJs</title>
+</head>
+<body>
+  
+    <div id="app">
+      <div>
+        <h2>{{ property.name }}</h2>
+        <a v-if="property.availability">Book now</a>
+        <a v-else="property.availability" disabled>Too late!</a>
+      </div>
+    </div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    property: {
+      name: 'Happy Hostel',
+      availability: false
+    }
+  }
+})
+</script>
+</body>
+</html>

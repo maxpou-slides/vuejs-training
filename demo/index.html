@@ -10,22 +10,24 @@
 </head>
 <body>
   
-    <div id="app">
-      <div>
-        <h2>{{ property.name }}</h2>
-        <a v-if="property.availability">Book now</a>
-        <a v-else="property.availability" disabled>Too late!</a>
-      </div>
-    </div>
+<div id="lifecycle" v-if="starship">
+  <h2 v-if="starship">{{ starship.name }}</h2>
+  <h3>{{ starship.model }}</h3>
+</div>
 
 <script>
+
 var app = new Vue({
-  el: '#app',
+  el: '#lifecycle',
   data: {
-    property: {
-      name: 'Happy Hostel',
-      availability: false
-    }
+    starship: {}
+  },
+  mounted () {
+    fetch('https://swapi.co/api/starships/12/')
+    .then(response => response.json())
+    .then(data => {
+      this.starship = data
+    })
   }
 })
 </script>

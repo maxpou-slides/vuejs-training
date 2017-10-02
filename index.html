@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>VueJS Training</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/pikestreet.css">
@@ -23,13 +24,15 @@ document.getElementsByTagName('head')[0].appendChild(link);
   <section>
     <section data-background-image="img/vue-bg.png">
       <h2>VueJS</h2>
+      <h3><i>/vjuː/</i></h3>
     </section>
   </section>
   <section>
     <section>
       <h2>Vue</h2>
       <ul>
-        <li>Framework(/Library) to create components</li>
+        <li>Framework(/Library) to create interfaces (views)</li>
+        <li>Oriented components</li>
         <li>Easy to use, straightforward syntax</li>
         <li>Use declarative rendering</li>
       </ul>
@@ -116,10 +119,11 @@ window.onload = () => {
 
 var counterDemo = new Vue({
   el: '#counterDemo',
+  name: 'counter',
   data: {
     counter: 0
   },
-  created() {
+  created () {
     setInterval(() => {
       this.counter++
     }, 1000)
@@ -237,6 +241,7 @@ var app = new Vue({
       <script>
 var vueModel = new Vue({
   el: '#vue-model',
+  name: 'v-model',
   data: {
     message: 'Long live v-model!'
   }
@@ -281,9 +286,6 @@ new Vue({
       </code></pre>
     </section>
     <section>
-      <h2>Lifecycle</h2>
-    </section>
-    <section>
       <h2>Passing properties</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
@@ -297,6 +299,218 @@ Vue.component('property-detail', {
 })
       </code></pre>
       <p class="fragment">shortcut: <code>:name="'Cool property'"</code></p>
+    </section>
+    <section>
+      <h2>Emit events</h2>
+      <pre class="fragment"><code data-trim>
+<div id="emitEvents">
+  <button v-on:click="addToCart(property)">{{ property.name }}</button>
+</div>
+        </code></pre>
+        <pre class="fragment"><code data-trim>    
+new Vue({
+  el: '#emitEvents',
+  data: {
+    property: {
+      name: 'Cool Property'
+    }
+  },
+  methods: {
+    addToCart (property) {
+      this.$emit('selectProperty', property)
+    }
+  }
+})
+    </code></pre>
+    <div id="demo-event" class="fragment">
+      <h4>Example</h4>
+      <button v-on:click="addToCart(property)">{{ property.name }}</button>
+    </div>
+    <script>
+var addToCart = new Vue({
+  el: '#demo-event',
+  name: 'addToCart',
+  data: {
+    property: {
+      name: 'Cool Property'
+    }
+  },
+  methods: {
+    addToCart (property) {
+      this.$emit('selectProperty', property)
+    }
+  }
+})
+    </script>
+    </section>
+    <section>
+      <h2>Events</h2>
+      <img src="./img/events.png">
+    </section>
+    <section>
+      <h2>Listening events</h2>
+      <pre class="fragment"><code data-trim>
+<div id="property-list">
+  <property-list-item v-for="(property, index) in properties" :key="index"
+  :property="property" v-on:select="add"></property-list-item>
+  <p>Cart: {{ cartToString }}</p>
+</div>            
+      </code></pre>
+      <pre class="fragment"><code data-trim>    
+Vue.component('property-list-item', {
+  template: '<button v-on:click="click">+ add {{ property }} to cart</button>',
+  props: ['property'],
+  methods: {
+    click () {
+      this.$emit('select', this.property)
+    }
+  }
+})
+
+var propertyList = new Vue({
+  el: '#property-list-demo',
+  name: 'propertyList',
+  data: {
+    properties: ['propertyA', 'propertyB'],
+    cart: []
+  },
+  computed: {
+    cartToString () {
+      return this.cart.length ? this.cart.join(' ') : '(empty)'
+    }
+  },
+  methods: {
+    add (property) {
+      this.cart.push(property)
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Listening events - Example</h2>
+        <div id="property-list-demo">
+          <property-list-item v-for="(property, index) in properties" :key="index"
+            :property="property" v-on:select="add"></property-list-item>
+          <p>Cart: {{ cartToString }}</p>
+        </div>
+    
+      <script>
+Vue.component('property-list-item', {
+  template: '<button v-on:click="click">+ add {{ property }} to cart</button>',
+  props: ['property'],
+  methods: {
+    click () {
+      this.$emit('select', this.property)
+    }
+  }
+})
+
+var propertyList = new Vue({
+  el: '#property-list-demo',
+  name: 'propertyList',
+  data: {
+    properties: ['propertyA', 'propertyB'],
+    cart: []
+  },
+  computed: {
+    cartToString () {
+      return this.cart.length ? this.cart.join(' ') : '(empty)'
+    }
+  },
+  methods: {
+    add (property) {
+      this.cart.push(property)
+    }
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Computed properties</h2>
+      <pre class="fragment"><code data-trim>
+Vue.component('property-detail', {
+  template: `<div>Property: {{ nameUpperCase }}</div>`,
+  props: ['name'],
+  computed: {
+    nameUpperCase () {
+      return this.name.toUpperCase()
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Watchers</h2>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+<input v-model="appreciation" placeholder="say something good!">
+<p>Vue.JS is...<span style="color: #42b983;">{{ appreciation }}</span></p>
+      </code></pre>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+var vueWatcher = new Vue({
+  el: '#vue-watcher',
+  name: 'watcher',
+  data: {
+    appreciation: ''
+  },
+  watch: {
+    appreciation (newappreciation) {
+      if (newappreciation === 'bad') {
+        this.appreciation = 'awesome'
+      }
+    }
+  }
+})
+      </code></pre>
+      <h4 class="fragment" data-fragment-index="1">Example:</h4>
+      <div id="vue-watcher-demo" class="fragment" data-fragment-index="1">
+        <input v-model="appreciation" placeholder="say something good!">
+        <p>Vue.JS is...<span style="color: #42b983;">{{ appreciation }}</span></p>
+      </div>
+      <script>
+var vueWatcher = new Vue({
+  el: '#vue-watcher-demo',
+  name: 'watcher',
+  data: {
+    appreciation: ''
+  },
+  watch: {
+    appreciation (newappreciation) {
+      if (newappreciation === 'bad') {
+        this.appreciation = 'awesome'
+      }
+    }
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Lifecycle</h2>
+      <img src="./img/lifecycle.png" style="width: 20%;">
+    </section>
+    <section>
+      <h2>Example</h2>
+      <pre class="fragment"><code data-trim>
+<div id="lifecycle" v-if="starship">
+  <h2>{{ starship.name }}</h2>
+  <h3>{{ starship.model }}</h3>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var lifecycle = new Vue({
+  el: '#lifecycle',
+  data: {
+    starship: {}
+  },
+  mounted () {
+    fetch('https://swapi.co/api/starships/12/')
+    .then(response => response.json())
+    .then(data => {
+      this.starship = data
+    })
+  }
+})
+      </code></pre>
     </section>
   </section>
   <section>
@@ -327,7 +541,7 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
-npm run dev # ready to go!
+npm run dev 
       </code></pre>
     </section>
   </section>
@@ -398,6 +612,27 @@ export default {
     <section>
       <h2>Why you need a state managemet library?</h2>
       <img src="./img/state-management.png">
+      <p class="fragment">Components need to share the same state</p>
+    </section>
+    <section>
+      <h2>What is Vuex?</h2>
+      <ul>
+        <li>Inspired by Flux, Redux and The Elm Architecture</li>
+        <li>Provide a centralized store</li>
+      </ul>
+      <img src="./img/vuex-flow.png">
+    </section>
+    <section>
+      <h2>Idea behing Vuex</h2>
+      <img src="./img/vuex.png">
+    </section>
+    <section>
+      <h2>👍 Browsers devtools</h2>
+      <img src="./img/devtools-vuex.gif">
+      <ul>
+        <li>Import/Export state</li>
+        <li>Time travel</li>
+      </ul>
     </section>
   </section>
   <section>
@@ -449,6 +684,19 @@ export default {
     </h4>
     </section>
   </section>
+  <section>
+    <section>
+      <h2>Other</h2>
+    </section>
+    <section>
+      <h2>Style Guide</h2>
+      <h3><a href="https://vuejs.org/v2/style-guide/"><i class="fa fa-globe" aria-hidden="true"></i>  vuejs.org/v2/style-guide/</a></h3>
+    </section>
+    <section>
+      <h2>Resources</h2>
+      <h3><a href="https://github.com/vuejs/awesome-vue"><i class="fa fa-github" aria-hidden="true"></i> vuejs/awesome-vue</a></h3>
+    </section>
+  </section>
 </div>
 </div>
 <script src="reveal.js/lib/js/head.min.js"></script>
@@ -486,9 +734,29 @@ dependencies: [
   ga('send', 'pageview');
 </script>
 <style>
-  .reveal section img {
-    margin: 0; background:none; border: 0; box-shadow: none; 
-  }
+.reveal section img {
+  margin: 0; background:none; border: 0; box-shadow: none; 
+}
+button {
+  background-color: #2ba056;
+  color: #fff;
+  border-radius: .28571429rem;
+  padding: .78571429em 1.5em .78571429em;
+  border: 0;
+  font-weight: 700;
+  line-height: 1em;
+  cursor: pointer;
+  margin: 0 .25em 0 0;
+}
+
+.reveal pre code.hljs::selection,
+.reveal pre span::selection {
+  background: #DA81F5; /* WebKit/Blink Browsers */
+}
+.reveal pre code.hljs::-moz-selection,
+.reveal pre span::-moz-selection {
+  background: #DA81F5; /* Gecko Browsers */
+}
 </style>
 </body>
 </html>

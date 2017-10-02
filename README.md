@@ -14,23 +14,30 @@
 
 1. Intro
     * Vue, a progressive library (what&why)
-    * What is a component
-2. Vue.js essentials
-    * The Vue instance
+    * Declarative rendering
+    * Virtual DOM
+    * Tooling: Chrome/Firefox extension
+2. Vue.js syntax
     * Templating
-    * Data, Properties, Watcher&methods
-    * Directives (ex: v-if, v-show, v-for...)
-    * Binding
-    * Events
+    * Conditional rendering (`v-if`, `v-else`, `v-show`)
+    * loops (`v-for`)
     * v-model & forms
+4. Components
+    * What is a component?
+    * Communication between components: 
+        * properties
+        * events
+    * Watchers
+    * Computed properties
     * Lifecycle
-3. Ecosystem:
-    * Chrome/Firefox extension
+5. .vue file
     * [Single File Component (with vue-loader)](https://vue-loader.vuejs.org/en/)
     * [Vue + Webpack = ❤️](http://vuejs-templates.github.io/webpack/)
+    * Separation of concerns
+3. Ecosystem:
     * HTTP (with [axios](https://github.com/mzabriskie/axios))
     * Router (with [vue-router](https://router.vuejs.org/en/))
-    * [Vuex](https://vuex.vuejs.org/en/)
+    * State Management (with [Vuex](https://vuex.vuejs.org/en/))
     * Unit Testing (with [Jest](https://github.com/facebook/jest))
-    * Deploying a Vue application
-    * Other resources
+    * Server Side Rendering (notions)
+    * Other resources (Style Guide)

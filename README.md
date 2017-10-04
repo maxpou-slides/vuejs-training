@@ -8,12 +8,17 @@
 * Understand Vuejs basics
 * Create a mini FAB
  
-**Duration**: Need to be defined (mini 3H)
+**Duration**: 3 possibilities
+
+* 1/2 day: presentation
+* 1 day: presentation + live coding
+* 2 day: presentation + live coding + workshop
+
 
 **Content**
 
 1. Intro
-    * Vue, a progressive library (what&why)
+    * Vuejs, a progressive library (what&why)
     * Declarative rendering
     * Virtual DOM
     * Tooling: Chrome/Firefox extension
@@ -26,7 +31,7 @@
     * What is a component?
     * Communication between components: 
         * properties
-        * events
+        * emiting&listening events
     * Watchers
     * Computed properties
     * Lifecycle

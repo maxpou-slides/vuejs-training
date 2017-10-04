@@ -36,6 +36,9 @@ document.getElementsByTagName('head')[0].appendChild(link);
         <li>Easy to use, straightforward syntax</li>
         <li>Use declarative rendering</li>
       </ul>
+      <aside class="notes">
+        NPM Trends: http://www.npmtrends.com/angular-vs-react-vs-vue-vs-@angular/core
+      </aside>
     </section>
     <section>
       <h2>Who's using VueJS</h2>
@@ -467,12 +470,11 @@ Vue.component('property-detail', {
       <h2>Watchers</h2>
       <pre class="fragment" data-fragment-index="0"><code data-trim>
 <input v-model="appreciation" placeholder="say something good!">
-<p>Vue.JS is...<span style="color: #42b983;">{{ appreciation }}</span></p>
+<p>Vue.JS is...<span>{{ appreciation }}</span></p>
       </code></pre>
       <pre class="fragment" data-fragment-index="0"><code data-trim>
 var vueWatcher = new Vue({
   el: '#vue-watcher',
-  name: 'watcher',
   data: {
     appreciation: ''
   },
@@ -485,9 +487,8 @@ var vueWatcher = new Vue({
   }
 })
       </code></pre>
-      <h4 class="fragment" data-fragment-index="1">Example:</h4>
       <div id="vue-watcher-demo" class="fragment" data-fragment-index="1">
-        <input v-model="appreciation" placeholder="say something good!">
+        <h4>Example: <input v-model="appreciation" placeholder="say something good!"></h4>
         <p>Vue.JS is...<span style="color: #42b983;">{{ appreciation }}</span></p>
       </div>
       <script>
@@ -802,19 +803,106 @@ export const addToSelection = ({ commit }, hostel) => {
       <h2>Installation</h2>
     </section>
     <section>
-      <h2>Our first test</h2>
+      <h2>File Architecture</h2>
+        <pre><code data-trim>
+├── test/
+│   ├── __mocks__
+│   ├── __snapshots__
+│   └── api/
+│       └── hostelApi.spec.js
+│   └── components/
+│       └── __snapshots__/
+│           └── Selection.spec.js.snap
+│       └── MyComponent.spec.js
+│   └── store/
+│       └── modules/ 
+│           └── myModule.spec.js
+      </code></pre>
     </section>
     <section>
       <h2>Assertions List</h2>
+      <pre><code data-trim>
+expect(foo).toBe()        // use ===
+expect(foo).toEqual()     // object have same values (not necessary same reference)
+expect(true).toBeTruthy()
+expect(false).toBeFalsy()
+expect('banana').toContain('ban')
+      </code></pre>
     </section>
     <section>
+      <h2>Our first test</h2>
+      <iframe src="https://repl.it/languages/jest?lite=true" style="width: 100%;height: -webkit-fill-available;"></iframe>
+    </section>
+    <section>
+      <h3>Now, let's meet the real world!</h3>
+    </section>
+    <section data-transition="none">
       <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-1.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-2.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-3.png">
     </section>
     <section>
       <h2>Snapshot testing - example</h2>
+        <pre><code data-trim>
+import { mount, shallow } from 'vue-test-utils'
+import MyComponent from '@/components/MyComponent.vue'
+import store from '@/store'
+
+describe('Shop.vue', () => {
+  it('test initial rendering', () => {
+    const wrapper = mount(MyComponent, { store })
+    const template = wrapper.html()
+    expect(template).toMatchSnapshot()
+  })
+})
+      </code></pre>
     </section>
     <section>
-      <h2>Testing Axios calls</h2>
+      <h2>Testing component interactions</h2>
+      <pre><code data-trim>
+
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing Axios calls - Mock part</h2>
+      <pre><code data-trim>
+// tests/unit/specs/__mocks__/axios.js
+import userBookingResponse from '../api/userBooking.response.json'
+
+class Axios {
+  get (url) {
+    if (url === '/users/1/bookings'){
+      const data = userBookingResponse
+    }
+    const response = { status: 200, statusText: 'OK', data: data }
+    return Promise.resolve(response)
+  }
+}
+
+export default new Axios()
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing Axios calls - API part</h2>
+      <pre><code data-trim>
+// tests/unit/specs/api/userBookingApi.spec.js
+import userBookingResponse from './userBooking.response.json'
+import * as userBookingApi from '@/api/userBookingApi'
+
+describe('userBooking HTTP', () => {
+  it('getUserBooking() should return the response data', () => {
+    expect.assertions(1)
+    return expect(userBookingApi.getUserBooking()).resolves.toEqual(userBookingResponse)
+  })
+})
+      </code></pre>
     </section>
     <section>
       <h2>Testing Vuex</h2>
@@ -907,10 +995,13 @@ button {
   margin: 0 .25em 0 0;
 }
 
+.reveal input::-moz-selection,
 .reveal pre code.hljs::selection,
 .reveal pre span::selection {
   background: #DA81F5; /* WebKit/Blink Browsers */
 }
+
+.reveal input::selection,
 .reveal pre code.hljs::-moz-selection,
 .reveal pre span::-moz-selection {
   background: #DA81F5; /* Gecko Browsers */
@@ -918,6 +1009,23 @@ button {
 
 li.space {
   margin-top: 15px;
+}
+input {
+  font-size: large;
+  width: 30%;
+  margin: 0;
+  max-width: 100%;
+  padding: .67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem;
+}
+input:focus {
+    border-color: #85b7d9;
+    background: #fff;
+    color: rgba(0,0,0,.8);
+    box-shadow: none;
 }
 </style>
 </body>

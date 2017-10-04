@@ -295,10 +295,30 @@ new Vue({
       <pre class="fragment"><code data-trim>
 Vue.component('property-detail', {
   template: `<div>Property: {{ name }}</div>`,
-  props: ['name']
+  props: { 
+    name: String
+  }
 })
       </code></pre>
       <p class="fragment">shortcut: <code>:name="'Cool property'"</code></p>
+    </section>
+    <section>
+      <h2>Props validation</h2>
+      <pre><code data-trim>
+Vue.component('property-price', {
+  template: `<div>Price: {{ price }}</div>`,
+  props: { 
+    price: {
+      type: Number,
+      required: true,
+      validator: function (value) {
+        return value > 0
+      },
+      default: 100
+    }
+  }
+})
+      </code></pre>
     </section>
     <section>
       <h2>Emit events</h2>
@@ -386,6 +406,9 @@ var propertyList = new Vue({
   }
 })
       </code></pre>
+    </section>
+    <section>
+      <h2>2-way Data-binding</h2>
     </section>
     <section>
       <h2>Listening events - Example</h2>
@@ -489,7 +512,7 @@ var vueWatcher = new Vue({
       <img src="./img/lifecycle.png" style="width: 20%;">
     </section>
     <section>
-      <h2>Example</h2>
+      <h2>Example with <code>mounted()</code></h2>
       <pre class="fragment"><code data-trim>
 <div id="lifecycle" v-if="starship">
   <h2>{{ starship.name }}</h2>
@@ -619,16 +642,133 @@ export default {
       <ul>
         <li>Inspired by Flux, Redux and The Elm Architecture</li>
         <li>Provide a centralized store</li>
+        <li>Easy to test!</li>
       </ul>
-      <img src="./img/vuex-flow.png">
+      <img src="./img/vuex-flow.png" style="width: 40%;margin-top: 15px;">
     </section>
     <section>
       <h2>Idea behing Vuex</h2>
       <img src="./img/vuex.png">
     </section>
     <section>
+      <h2>Core concepts</h2>
+      <ul>
+        <li class="fragment space">
+          <b>State</b>: An object containing the data<br>
+          <i>Ex: a list of hostels</i>
+        </li>
+        <li class="fragment space">
+          <b>Getters</b>: A state accessor<br>
+          <i>Ex: getHostels(), getHostelsFromBerlin()...</i>
+        </li>
+        <li class="fragment space">
+          <b>Mutations</b>: perform modifications of data in the state. Must be syncrhonous!<br>
+          <i>Ex: addRoomToSelection()</i>
+        </li>
+        <li class="fragment space">
+          <b>Actions</b>: similar to mutations. Instead of mutating the state, actions commit mutations. Can also be asynchronous<br>
+          <i>Ex: roomApi.fetch(), checkout()</i>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Modules</h2>
+    </section>
+    <section>
+      <h2>File architecture</h2>
+      <pre><code data-trim>
+├── src/
+│   ├── main.js
+│   ├── App.vue
+│   └── api/
+│       └── ...
+│   └── components/
+│       └── ...
+│   └── store/
+│       └── modules/ 
+│           └── ...
+│       ├── index.js
+│       └── mutation-types.js
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example - store side</h2>
+      <pre><code data-trim>
+// store/modules/hostel.js
+import * as api from '../api'
+import * as types from '../mutation-types'
+
+export default {
+  state: {
+    hostels: []
+  },
+  getters = {
+    allHostels: state => state.hostels,
+    highRatedHostels: state => state.hostels.filter(h => h.score >= 7)
+  },
+  mutations: {
+    [types.RECEIVE_HOSTEL] (state, hostels) {
+      state.hostels = hostels
+    }
+  },
+  actions: {
+    loadHostelsCountry ({ commit }, country) {
+      commit(types.LOAD_HOSTELS_BY_COUNTRY, { country })
+      api.getHostels(country).then(data => {
+        commit(types.RECEIVE_HOSTELS, { data })
+      })
+    }
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example - Component side</h2>
+      <pre><code data-trim>
+// MyComponent.vue
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  computed: mapGetters({
+    hostels: 'allHostels'
+  }),
+  methods: mapActions([
+    'loadHostelsCountry'
+  ]),
+  created () {
+    this.$store.dispatch('loadHostelsCountry', 'Berlin')
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Why actions commit mutations?</h2>
+      <img src="./img/vuex-example-flow.png">
+    </section>
+    <section>
+      <h2>Why actions commit mutations?</h2>
+      <pre><code data-trim>
+// store/actions.js
+export const addToSelection = ({ commit }, hostel) => {
+  commit(types.ADD_TO_SELECTION, { hostel })
+}
+      </code></pre>
+      <pre><code data-trim>
+// store/modules/hostelList.js
+[types.ADD_TO_SELECTION] (state, { hostel }) {
+  state.hostelList.slice(state.hostelList.indexOf(hostel), 1)
+}
+      </code></pre>
+      <pre><code data-trim>
+// store/modules/hostelSelection.js
+[types.ADD_TO_SELECTION] (state, { hostel }) {
+  state.selection.push(hostel)
+}
+      </code></pre>
+    </section>
+    <section>
       <h2>👍 Browsers devtools</h2>
-      <img src="./img/devtools-vuex.gif">
+      <img src="./img/devtools-vuex.gif" style="width: 60%;">
       <ul>
         <li>Import/Export state</li>
         <li>Time travel</li>
@@ -660,6 +800,24 @@ export default {
     </section>
     <section>
       <h2>Installation</h2>
+    </section>
+    <section>
+      <h2>Our first test</h2>
+    </section>
+    <section>
+      <h2>Assertions List</h2>
+    </section>
+    <section>
+      <h2>Snapshot testing - flow</h2>
+    </section>
+    <section>
+      <h2>Snapshot testing - example</h2>
+    </section>
+    <section>
+      <h2>Testing Axios calls</h2>
+    </section>
+    <section>
+      <h2>Testing Vuex</h2>
     </section>
   </section>
   <section>
@@ -756,6 +914,10 @@ button {
 .reveal pre code.hljs::-moz-selection,
 .reveal pre span::-moz-selection {
   background: #DA81F5; /* Gecko Browsers */
+}
+
+li.space {
+  margin-top: 15px;
 }
 </style>
 </body>

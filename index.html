@@ -83,7 +83,7 @@ var app = new Vue({
     </section>
     <section>
       <h2>DevTools</h2>
-      <img src="./img/devtool.png" alt="declarative rendering" style="width: 80%;">
+      <img src="./img/devtool.png" alt="declarative rendering" style="width: 60%;">
     </section>
     <section data-transition="none">
       <h2>Virtual DOM</h2>
@@ -144,8 +144,8 @@ var counterDemo = new Vue({
       <pre class="fragment"><code data-trim>
 <div id="app">
   <div>
-    <h2>{{ property.name }}</h2>
-    <a v-if="property.availability">Book now</a>
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
   </div>
 </div>
       </code></pre>
@@ -153,7 +153,7 @@ var counterDemo = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    property: {
+    hostel: {
       name: 'Happy Hostel',
       availability: true
     }
@@ -166,9 +166,9 @@ var app = new Vue({
       <pre><code data-trim>
 <div id="app">
   <div>
-    <h2>{{ property.name }}</h2>
-    <a v-if="property.availability">Book now</a>
-    <a v-else="property.availability" disabled>Too late!</a>
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
+    <a v-else="hostel.availability" disabled>Too late!</a>
   </div>
 </div>
       </code></pre>
@@ -176,7 +176,7 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    property: {
+    hostel: {
       name: 'Happy Hostel',
       availability: true
     }
@@ -188,9 +188,9 @@ var app = new Vue({
       <h2>Conditional rendering: v-show</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <div v-show="property.isActive">
-    <h2>{{ property.name }}</h2>
-    <a v-if="property.availability">Book now</a>
+  <div v-show="hostel.isActive">
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
   </div>
 </div>
       </code></pre>
@@ -198,7 +198,7 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    property: {
+    hostel: {
       name: 'Happy Hostel',
       availability: true,
       isActive: true
@@ -211,8 +211,8 @@ var app = new Vue({
       <h2>Loops: v-for</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <div v-for="property in properties">
-    <h2>{{ property.name }}</h2>
+  <div v-for="hostel in hostels">
+    <h2>{{ hostel.name }}</h2>
   </div>
 </div>
       </code></pre>
@@ -220,7 +220,7 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    properties: [
+    hostels: [
       { name: 'Happy Hostel' },
       { name: 'Awesome Hostel' },
       { name: 'Another Hostel' }
@@ -273,9 +273,9 @@ var vueModel = new Vue({
     </section>
     <section>
       <h2>our first component</h2>
-      <pre class="fragment"><code data-trim>
-Vue.component('property-detail', {
-  template: `<div>I'm a property!</div>`
+      <pre class="fragment"><code class="language-js" data-trim>
+Vue.component('hostel-detail', {
+  template: `<div>I'm a hostel!</div>`
 })
 
 new Vue({
@@ -284,7 +284,7 @@ new Vue({
       </code></pre>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <property-detail></property-detail>
+  <hostel-detail></hostel-detail>
 </div>
       </code></pre>
     </section>
@@ -292,29 +292,29 @@ new Vue({
       <h2>Passing properties</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <property-detail v-bind:name="'Cool property'"></property-detail>
+  <hostel-detail v-bind:name="'Cool hostel'"></hostel-detail>
 </div>
       </code></pre>
-      <pre class="fragment"><code data-trim>
-Vue.component('property-detail', {
-  template: `<div>Property: {{ name }}</div>`,
+      <pre class="fragment"><code class="language-js" data-trim>
+Vue.component('hostel-detail', {
+  template: `<div>hostel: {{ name }}</div>`,
   props: { 
     name: String
   }
 })
       </code></pre>
-      <p class="fragment">shortcut: <code>:name="'Cool property'"</code></p>
+      <p class="fragment">shortcut: <code>:name="'Cool hostel'"</code></p>
     </section>
     <section>
       <h2>Props validation</h2>
-      <pre><code data-trim>
-Vue.component('property-price', {
+      <pre><code class="language-js" data-trim>
+Vue.component('hostel-price', {
   template: `<div>Price: {{ price }}</div>`,
   props: { 
     price: {
       type: Number,
       required: true,
-      validator: function (value) {
+      validator (value) {
         return value > 0
       },
       default: 100
@@ -327,40 +327,40 @@ Vue.component('property-price', {
       <h2>Emit events</h2>
       <pre class="fragment"><code data-trim>
 <div id="emitEvents">
-  <button v-on:click="addToCart(property)">{{ property.name }}</button>
+  <button v-on:click="addToCart(hostel)">{{ hostel.name }}</button>
 </div>
         </code></pre>
         <pre class="fragment"><code data-trim>    
 new Vue({
   el: '#emitEvents',
   data: {
-    property: {
-      name: 'Cool Property'
+    hostel: {
+      name: 'Cool hostel'
     }
   },
   methods: {
-    addToCart (property) {
-      this.$emit('selectProperty', property)
+    addToCart (hostel) {
+      this.$emit('selecthostel', hostel)
     }
   }
 })
     </code></pre>
     <div id="demo-event" class="fragment">
       <h4>Example</h4>
-      <button v-on:click="addToCart(property)">{{ property.name }}</button>
+      <button v-on:click="addToCart(hostel)">{{ hostel.name }}</button>
     </div>
     <script>
 var addToCart = new Vue({
   el: '#demo-event',
   name: 'addToCart',
   data: {
-    property: {
-      name: 'Cool Property'
+    hostel: {
+      name: 'Cool hostel'
     }
   },
   methods: {
-    addToCart (property) {
-      this.$emit('selectProperty', property)
+    addToCart (hostel) {
+      this.$emit('selecthostel', hostel)
     }
   }
 })
@@ -368,33 +368,33 @@ var addToCart = new Vue({
     </section>
     <section>
       <h2>Events</h2>
-      <img src="./img/events.png">
+      <img src="./img/events.png" style="width: 80%;">
     </section>
     <section>
       <h2>Listening events</h2>
       <pre class="fragment"><code data-trim>
-<div id="property-list">
-  <property-list-item v-for="(property, index) in properties" :key="index"
-  :property="property" v-on:select="add"></property-list-item>
+<div id="hostel-list">
+  <hostel-list-item v-for="(hostel, index) in properties" :key="index"
+  :hostel="hostel" v-on:select="add"></hostel-list-item>
   <p>Cart: {{ cartToString }}</p>
 </div>            
       </code></pre>
       <pre class="fragment"><code data-trim>    
-Vue.component('property-list-item', {
-  template: '<button v-on:click="click">+ add {{ property }} to cart</button>',
-  props: ['property'],
+Vue.component('hostel-list-item', {
+  template: '<button v-on:click="click">+ add {{ hostel }} to cart</button>',
+  props: ['hostel'],
   methods: {
     click () {
-      this.$emit('select', this.property)
+      this.$emit('select', this.hostel)
     }
   }
 })
 
-var propertyList = new Vue({
-  el: '#property-list-demo',
-  name: 'propertyList',
+var hostelList = new Vue({
+  el: '#hostel-list-demo',
+  name: 'hostelList',
   data: {
-    properties: ['propertyA', 'propertyB'],
+    properties: ['hostelA', 'hostelB'],
     cart: []
   },
   computed: {
@@ -403,40 +403,37 @@ var propertyList = new Vue({
     }
   },
   methods: {
-    add (property) {
-      this.cart.push(property)
+    add (hostel) {
+      this.cart.push(hostel)
     }
   }
 })
       </code></pre>
     </section>
     <section>
-      <h2>2-way Data-binding</h2>
-    </section>
-    <section>
       <h2>Listening events - Example</h2>
-        <div id="property-list-demo">
-          <property-list-item v-for="(property, index) in properties" :key="index"
-            :property="property" v-on:select="add"></property-list-item>
+        <div id="hostel-list-demo">
+          <hostel-list-item v-for="(hostel, index) in properties" :key="index"
+            :hostel="hostel" v-on:select="add"></hostel-list-item>
           <p>Cart: {{ cartToString }}</p>
         </div>
     
       <script>
-Vue.component('property-list-item', {
-  template: '<button v-on:click="click">+ add {{ property }} to cart</button>',
-  props: ['property'],
+Vue.component('hostel-list-item', {
+  template: '<button v-on:click="click">+ add {{ hostel }} to cart</button>',
+  props: ['hostel'],
   methods: {
     click () {
-      this.$emit('select', this.property)
+      this.$emit('select', this.hostel)
     }
   }
 })
 
-var propertyList = new Vue({
-  el: '#property-list-demo',
-  name: 'propertyList',
+var hostelList = new Vue({
+  el: '#hostel-list-demo',
+  name: 'hostelList',
   data: {
-    properties: ['propertyA', 'propertyB'],
+    properties: ['hostelA', 'hostelB'],
     cart: []
   },
   computed: {
@@ -445,8 +442,8 @@ var propertyList = new Vue({
     }
   },
   methods: {
-    add (property) {
-      this.cart.push(property)
+    add (hostel) {
+      this.cart.push(hostel)
     }
   }
 })
@@ -455,8 +452,8 @@ var propertyList = new Vue({
     <section>
       <h2>Computed properties</h2>
       <pre class="fragment"><code data-trim>
-Vue.component('property-detail', {
-  template: `<div>Property: {{ nameUpperCase }}</div>`,
+Vue.component('hostel-detail', {
+  template: `<div>hostel: {{ nameUpperCase }}</div>`,
   props: ['name'],
   computed: {
     nameUpperCase () {
@@ -468,7 +465,7 @@ Vue.component('property-detail', {
     </section>
     <section>
       <h2>Watchers</h2>
-      <pre class="fragment" data-fragment-index="0"><code data-trim>
+      <pre class="fragment" data-fragment-index="0"><code data-trim class="language-html">
 <input v-model="appreciation" placeholder="say something good!">
 <p>Vue.JS is...<span>{{ appreciation }}</span></p>
       </code></pre>
@@ -514,14 +511,14 @@ var vueWatcher = new Vue({
     </section>
     <section>
       <h2>Example with <code>mounted()</code></h2>
-      <pre class="fragment"><code data-trim>
+      <pre class="fragment"><code class="language-html" data-trim>
 <div id="lifecycle" v-if="starship">
   <h2>{{ starship.name }}</h2>
   <h3>{{ starship.model }}</h3>
 </div>
       </code></pre>
-      <pre class="fragment"><code data-trim>
-var lifecycle = new Vue({
+      <pre class="fragment"><code class="language-js" data-trim>
+const lifecycle = new Vue({
   el: '#lifecycle',
   data: {
     starship: {}
@@ -572,6 +569,14 @@ npm run dev
   <section>
     <section>
       <h2>Vue ecosystem: HTTP</h2>
+    </section>
+    <section>
+      <h2>Let's find something cool</h2>
+      <img src="./img/google-ajax.png">
+      <h2 class="fragment" style="color:red">Please DON'T! <br> ...and forget your jQuery habits!</h2>
+    </section>
+    <section>
+      <h2>Vue ecosystem: HTTP</h2>
       <h3><a href="https://github.com/axios/axios"><i class="fa fa-github" aria-hidden="true"></i> axios/axios</a></h3>
     </section>
     <section>
@@ -604,11 +609,11 @@ export function findAll (limit = 25) {
     </section>
     <section>
       <h2>Example (2/2)</h2>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 import * as hostelApi from '../api/hostels'
 
 export default {
-  data: function () {
+  data () {
     return {
       hostels: []
     }
@@ -626,6 +631,55 @@ export default {
     <section>
       <h2>Vue ecosystem: Routing</h2>
       <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vue-router</a></h3>
+    </section>
+    <section>
+      <h2>Single Page Application</h2>
+      <img src="./img/spa.png">
+    </section>
+    <section>
+      <h2>Vue-Router</h2>
+      <ul>
+        <li>Simple to use</li>
+        <li>Allow nested routes</li>
+        <li>Window.history</li>
+        <li>Support SSR - Server Side Rendering</li>
+        <li>...</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Installation</h2>
+    </section>
+    <section>
+      <h2>Example: Main template</h2>
+      <pre><code data-trim class="language-html">
+<div id="app">
+  <p>
+      <router-link to="/account">Go to my account</router-link>
+      <router-link to="/bookings">Go to booking</router-link>
+  </p>
+  <router-view></router-view>
+</div>
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example: JS</h2>
+      <pre><code data-trim class="language-js">
+const Account = { template: '<div>account</div>' }
+const Bookings = { template: '<div>bookings</div>' }
+
+const routes = [
+  { path: '/account', component: Account },
+  { path: '/bookings', component: Bookings }
+]
+
+const router = new VueRouter({
+  routes: routes
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+      </code></pre>
     </section>
   </section>
   <section>
@@ -694,7 +748,7 @@ export default {
     </section>
     <section>
       <h2>Example - store side</h2>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 // store/modules/hostel.js
 import * as api from '../api'
 import * as types from '../mutation-types'
@@ -725,7 +779,7 @@ export default {
     </section>
     <section>
       <h2>Example - Component side</h2>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 // MyComponent.vue
 import { mapGetters, mapActions } from 'vuex'
 
@@ -748,19 +802,19 @@ export default {
     </section>
     <section>
       <h2>Why actions commit mutations?</h2>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 // store/actions.js
 export const addToSelection = ({ commit }, hostel) => {
   commit(types.ADD_TO_SELECTION, { hostel })
 }
       </code></pre>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 // store/modules/hostelList.js
 [types.ADD_TO_SELECTION] (state, { hostel }) {
   state.hostelList.slice(state.hostelList.indexOf(hostel), 1)
 }
       </code></pre>
-      <pre><code data-trim>
+      <pre><code data-trim class="language-js">
 // store/modules/hostelSelection.js
 [types.ADD_TO_SELECTION] (state, { hostel }) {
   state.selection.push(hostel)
@@ -828,6 +882,7 @@ expect(true).toBeTruthy()
 expect(false).toBeFalsy()
 expect('banana').toContain('ban')
       </code></pre>
+      <p><a href="https://facebook.github.io/jest/docs/en/expect.html"><i class="fa fa-globe" aria-hidden="true"></i> list of assertions</a></p>
     </section>
     <section>
       <h2>Our first test</h2>
@@ -865,9 +920,22 @@ describe('Shop.vue', () => {
       </code></pre>
     </section>
     <section>
+      <h2>Testing component interactions (1/2)</h2>
+      <pre><code data-trim class="language-js" >
+it('should do something on close', () => {
+  const wrapper = mount(MyComponent, { store })
+  const button = wrapper.findAll('div.btn')
+  button.trigger('click')
+  expect(/** ... */).toBe('true')
+});
+      </code></pre>
+    </section>
+    <section>
       <h2>Testing component interactions</h2>
-      <pre><code data-trim>
-
+      <pre><code data-trim class="language-js" >
+it('should do something on close', () => {
+todo
+});
       </code></pre>
     </section>
     <section>
@@ -890,6 +958,25 @@ export default new Axios()
       </code></pre>
     </section>
     <section>
+      <h2>Testing Axios calls - mock using dynamic imports</h2>
+      <pre><code class="language-js" data-trim data-noescape>
+// tests/unit/specs/__mocks__/axios.js
+class Axios {
+  get (fullUrl) {
+    const url = fullUrl.replace(process.env.API_URL, '')
+
+    switch (url) {
+      case 'users/1': return Promise.resolve({ data: <mark>import('../api/user.1.response.json')</mark> })
+      case 'hostels/?page=3': return Promise.resolve({ data: <mark>import('../api/hostels.3.response.json')</mark> })
+      // ...
+    }
+  }
+}
+
+export default new Axios()
+      </code></pre>
+    </section>
+    <section>
       <h2>Testing Axios calls - API part</h2>
       <pre><code data-trim>
 // tests/unit/specs/api/userBookingApi.spec.js
@@ -905,7 +992,63 @@ describe('userBooking HTTP', () => {
       </code></pre>
     </section>
     <section>
-      <h2>Testing Vuex</h2>
+      <h2>Vuex - Test Getters</h2>
+      it('return all hostels', () => {
+        const state = {
+          hostels: [{ name: 'hostelA'}, { name: 'hostelB'}]
+        }
+    
+        const result = hostelStore.getters.allHostels(state)
+        expect(result).toEqual({ name: 'hostelA'}, { name: 'hostelB'})
+      })
+    </section>
+    <section>
+      <h2>Vuex - Test actions (1/2)</h2>
+      <p><a href="https://github.com/maxpou/vue-vuex-jest/blob/master/tests/unit/custom/test-actions.js"><i class="fa fa-globe" aria-hidden="true"></i> Example</a></p>
+      <pre><code data-trim class="language-js">
+// tests/unit/custom/testAction
+export const testAction = (action, payload, state, expectedMutations, done) => {
+  let count = 0
+
+  // mock commit
+  const commit = (type, payload) => {
+    const mutation = expectedMutations[count]
+
+    try {
+      expect(mutation.type).toEqual(type)
+      if (payload) {
+        expect(mutation.payload).toEqual(payload)
+      }
+    } catch (error) {
+      done(error)
+    }
+
+    count++
+    if (count >= expectedMutations.length) {
+      done()
+    }
+  }
+
+  // call the action with mocked store and arguments
+  action({ commit, state }, payload)
+
+  // check if no mutations should have been dispatched
+  if (expectedMutations.length === 0) {
+    expect(count).toEqual(0)
+    done()
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Vuex - Test actions (2/2)</h2>
+      <pre><code data-trim class="language-js">
+testAction(hostel.actions.loadHostelsCountry, 'Spain', {}, [
+  //expected commits
+  { type: 'LOAD_HOSTELS_BY_COUNTRY', payload: { country: 'Spain' } },
+  { type: 'RECEIVE_HOSTELS', payload: { data: expectedJSONHostels } }
+], done)
+      </code></pre>
     </section>
   </section>
   <section>
@@ -995,13 +1138,11 @@ button {
   margin: 0 .25em 0 0;
 }
 
-.reveal input::-moz-selection,
 .reveal pre code.hljs::selection,
 .reveal pre span::selection {
   background: #DA81F5; /* WebKit/Blink Browsers */
 }
 
-.reveal input::selection,
 .reveal pre code.hljs::-moz-selection,
 .reveal pre span::-moz-selection {
   background: #DA81F5; /* Gecko Browsers */
@@ -1022,10 +1163,10 @@ input {
   border-radius: .28571429rem;
 }
 input:focus {
-    border-color: #85b7d9;
-    background: #fff;
-    color: rgba(0,0,0,.8);
-    box-shadow: none;
+  border-color: #85b7d9;
+  background: #fff;
+  color: rgba(0,0,0,.8);
+  box-shadow: none;
 }
 </style>
 </body>

@@ -771,7 +771,7 @@ export default {
     }
   },
   actions: {
-    loadHostelsCountry ({ commit }, country) {
+    loadCountryHostels ({ commit }, country) {
       commit(types.LOAD_HOSTELS_BY_COUNTRY, { country })
       api.getHostels(country).then(data => {
         commit(types.RECEIVE_HOSTELS, { data })
@@ -792,10 +792,10 @@ export default {
     hostels: 'allHostels'
   }),
   methods: mapActions([
-    'loadHostelsCountry'
+    'loadCountryHostels'
   ]),
   created () {
-    this.$store.dispatch('loadHostelsCountry', 'Berlin')
+    this.$store.dispatch('loadCountryHostels', 'Berlin')
   }
 }
       </code></pre>
@@ -895,18 +895,6 @@ expect('banana').toContain('ban')
     <section>
       <h3>Now, let's meet the real world!</h3>
     </section>
-    <section data-transition="none">
-      <h2>Snapshot testing - flow</h2>
-      <img src="./img/jest-snapshot-flow-1.png">
-    </section>
-    <section data-transition="none">
-      <h2>Snapshot testing - flow</h2>
-      <img src="./img/jest-snapshot-flow-2.png">
-    </section>
-    <section data-transition="none">
-      <h2>Snapshot testing - flow</h2>
-      <img src="./img/jest-snapshot-flow-3.png">
-    </section>
     <section>
       <h2>Snapshot testing - example</h2>
         <pre><code data-trim>
@@ -923,6 +911,18 @@ describe('Shop.vue', () => {
 })
       </code></pre>
     </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-1.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-2.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-3.png">
+    </section>
     <section>
       <h2>Testing component interactions (1/2)</h2>
       <pre><code data-trim class="language-js" >
@@ -935,10 +935,10 @@ it('should do something on close', () => {
       </code></pre>
     </section>
     <section>
-      <h2>Testing component interactions</h2>
+      <h2>Testing component interactions 🚧 TODO 🚧</h2>
       <pre><code data-trim class="language-js" >
 it('should do something on close', () => {
-todo
+  // 🚧 TODO 🚧 
 });
       </code></pre>
     </section>
@@ -997,20 +997,22 @@ describe('userBooking HTTP', () => {
     </section>
     <section>
       <h2>Vuex - Test Getters</h2>
-      it('return all hostels', () => {
-        const state = {
-          hostels: [{ name: 'hostelA'}, { name: 'hostelB'}]
-        }
-    
-        const result = hostelStore.getters.allHostels(state)
-        expect(result).toEqual({ name: 'hostelA'}, { name: 'hostelB'})
-      })
+      <pre><code data-trim>
+it('return all hostels', () => {
+  const state = {
+    hostels: [{ name: 'hostelA'}, { name: 'hostelB'}]
+  }
+
+  const result = hostelStore.getters.allHostels(state)
+  expect(result).toEqual({ name: 'hostelA'}, { name: 'hostelB'})
+})
+      </code></pre>    
     </section>
     <section>
       <h2>Vuex - Test actions (1/2)</h2>
       <p><a href="https://github.com/maxpou/vue-vuex-jest/blob/master/tests/unit/custom/test-actions.js"><i class="fa fa-globe" aria-hidden="true"></i> Example</a></p>
       <pre><code data-trim class="language-js">
-// tests/unit/custom/testAction
+// tests/unit/custom/testAction.js
 export const testAction = (action, payload, state, expectedMutations, done) => {
   let count = 0
 
@@ -1047,7 +1049,7 @@ export const testAction = (action, payload, state, expectedMutations, done) => {
     <section>
       <h2>Vuex - Test actions (2/2)</h2>
       <pre><code data-trim class="language-js">
-testAction(hostel.actions.loadHostelsCountry, 'Spain', {}, [
+testAction(hostel.actions.loadCountryHostels, 'Spain', {}, [
   //expected commits
   { type: 'LOAD_HOSTELS_BY_COUNTRY', payload: { country: 'Spain' } },
   { type: 'RECEIVE_HOSTELS', payload: { data: expectedJSONHostels } }
@@ -1070,11 +1072,12 @@ testAction(hostel.actions.loadHostelsCountry, 'Spain', {}, [
     </section>
     <section>
       <h2>Reading</h2>
-      <h4>
+      <h3>
         <a href="https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8">
           <i class="fa fa-medium" aria-hidden="true"></i> The Benefits of Server Side Rendering Over Client Side Rendering <br>- by Alex Grigoryan
         </a>
-    </h4>
+      </h3>
+      <asides class="notes">Environment Agnostic SSR: https://gist.github.com/yyx990803/9bdff05e5468a60ced06c29c39114c6b</asides>
     </section>
   </section>
   <section>

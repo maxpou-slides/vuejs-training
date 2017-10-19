@@ -1,0 +1,23 @@
+{
+  "name": "vue-training",
+  "version": "1.0.0",
+  "description": "vuejs training",
+  "main": "reveal.js",
+  "scripts": {
+    "test": "exit 0",
+    "doc:build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxpou-slides/vuejs-training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxpou-slides/vuejs-training/issues"
+  },
+  "homepage": "https://github.com/maxpou-slides/vuejs-training#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}

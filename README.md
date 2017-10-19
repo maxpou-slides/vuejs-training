@@ -11,7 +11,7 @@ $ git clone https://github.com/maxpou-slides/vuejs-training --recursive
 ## Links
 
 * [Slides](http://slides.maxpou.fr/vuejs-training/)
-* [Workshop](http://slides.maxpou.fr/vuejs-training/docs/_book/index.html)
+* [Workshop](http://slides.maxpou.fr/vuejs-training/_book/index.html)
 
 ## Training informations
 

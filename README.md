@@ -1,17 +1,19 @@
 # Vue Training
 
-## Installation
+[![Build Status](https://travis-ci.org/maxpou-slides/vuejs-training.svg?branch=gh-pages)](https://travis-ci.org/maxpou-slides/vuejs-training)
+
+## Installation
 
 ```bash
 $ git clone https://github.com/maxpou-slides/vuejs-training --recursive
 ```
 
-## Links
+## Links
 
 * [Slides](http://slides.maxpou.fr/vuejs-training/)
 * [Workshop](http://slides.maxpou.fr/vuejs-training/docs/_book/index.html)
 
-## Training informations
+## Training informations
 
 **Prerequisites**
 

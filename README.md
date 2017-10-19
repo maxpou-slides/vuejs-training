@@ -1,6 +1,6 @@
 # Vue Training
 
-[![Build Status](https://travis-ci.org/maxpou-slides/vuejs-training.svg?branch=gh-pages)](https://travis-ci.org/maxpou-slides/vuejs-training)
+[![Build Status](https://travis-ci.org/maxpou-slides/vuejs-training.svg?branch=master)](https://travis-ci.org/maxpou-slides/vuejs-training)
 
 ## Installation
 

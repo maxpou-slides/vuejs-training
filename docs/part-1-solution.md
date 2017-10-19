@@ -1,3 +1,8 @@
+# Part 1: Playing with Vue Syntax - SOLUTION
+
+## Step 1
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,3 +52,16 @@ var app = new Vue({
 </script>
 </body>
 </html>
+```
+
+## Step 2
+
+```html
+
+```
+
+## Step 3
+
+```html
+
+```

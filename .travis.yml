@@ -7,7 +7,7 @@ cache:
 
 script:
   - "npm install gitbook-cli -g"
-  - "cd docs/ && gitbook build"
+  - "cd docs/ && gitbook build && cd .."
 
 deploy:
   provider: pages

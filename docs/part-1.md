@@ -31,6 +31,10 @@ Create an `index.html` in a folder base on the following structure:
 </html>
 ```
 
+Our final goal is to create something like this:
+
+![](../resources/workshop-1.png)
+
 ## Step 1: rendering data
 
 Print on the web page the informations related to the hostel:
@@ -188,3 +192,8 @@ New set of data:
   isActive: true
 }]
 ```
+
+
+## Step Bonus: create a filter
+
+Add an input to filter the showed properties.

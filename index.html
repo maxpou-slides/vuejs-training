@@ -168,7 +168,7 @@ var app = new Vue({
   <div>
     <h2>{{ hostel.name }}</h2>
     <a v-if="hostel.availability">Book now</a>
-    <a v-else="hostel.availability" disabled>Too late!</a>
+    <a v-else disabled>Too late!</a>
   </div>
 </div>
       </code></pre>
@@ -250,6 +250,22 @@ var vueModel = new Vue({
   }
 })
       </script>
+    </section>
+    <section>
+      <h2>Computed properties</h2>
+      <pre class="fragment"><code data-trim>
+const vueModel = new Vue({
+  el: '#app',
+  data: {
+    message: 'Long live v-model!'
+  },
+  computed: {
+    messageUpperCase () {
+      return this.message.toUpperCase()
+    }
+  }
+})
+      </code></pre>
     </section>
   </section>
   <section>
@@ -448,20 +464,6 @@ var hostelList = new Vue({
   }
 })
       </script>
-    </section>
-    <section>
-      <h2>Computed properties</h2>
-      <pre class="fragment"><code data-trim>
-Vue.component('hostel-detail', {
-  template: `<div>hostel: {{ nameUpperCase }}</div>`,
-  props: ['name'],
-  computed: {
-    nameUpperCase () {
-      return this.name.toUpperCase()
-    }
-  }
-})
-      </code></pre>
     </section>
     <section>
       <h2>Watchers</h2>

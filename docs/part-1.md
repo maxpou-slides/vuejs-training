@@ -111,8 +111,11 @@ Play with the given datas to ensure your conditional rendering is working.
 **Tip!**: HTML template for a button:
 
 ```html
-<div class="ui bottom attached button">
-  I'm a button!
+<div class="ui orange bottom attached button">
+  I'm a button
+</div>
+<div class="ui bottom attached disabled button">
+  You can't click me!
 </div>
 ```
 
@@ -199,7 +202,9 @@ New set of data:
 
 Add an input text to filter the showed properties by their name.
 
-**Tip!**: HTML template for the input text
+**Tip!**: 
+
+* HTML template for the input text
 
 ```html
 <form class="ui form">
@@ -208,3 +213,6 @@ Add an input text to filter the showed properties by their name.
   </div>
 </form>
 ```
+
+* You can use `v-model` and [`includes()
+`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)

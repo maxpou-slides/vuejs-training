@@ -20,8 +20,11 @@
 
   <div class="ui cards">
     <hostel-list-detail 
-      v-for="hostel in filteredHostels" 
-      :hostel="hostel"
+      v-for="hostelShown in hostelsShown"
+      v-if="hostelShown.isActive"
+      :hostel="hostelShown"
+      :like="likedHostels.indexOf(hostelShown) !== -1"
+      v-on:like-hostel="likeHostel"
     ></hostel-list-detail>
   </div>
 
@@ -29,10 +32,10 @@
 <script>
 Vue.component('hostel-list-detail', {
   template: `
-    <div class="card" v-show="hostel.isActive">
+    <div class="card">
       <div class="content">
         <div class="right floated meta">
-          <i v-bind:class="{ red: like }" class="heart icon"></i>
+          <i v-bind:class="{ red: like }" class="heart icon" @click="$emit('likeHostel', hostel)"></i>
         </div>
         <div class="header">{{ hostel.name }}</div>
         </div>
@@ -51,7 +54,7 @@ Vue.component('hostel-list-detail', {
               {{ hostel.description }}
           </div>
         </div>
-        <div v-if="hostel.availability" class="ui bottom attached button">
+        <div v-if="hostel.availability" class="ui orange bottom attached button">
           Book now
         </div>
         <div v-else class="ui bottom attached disabled button">
@@ -59,7 +62,7 @@ Vue.component('hostel-list-detail', {
         </div>
     </div>
   `,
-  props: ['hostel', 'like']
+  props: ['hostel', 'like'],
 })
 
   var app = new Vue({
@@ -68,7 +71,6 @@ Vue.component('hostel-list-detail', {
       userSearch: '',
       likedHostels: [],
       hostels: [{
-        id: 1,
         name: 'Happy Hostel',
         location: 'Berlin',
         price: {
@@ -86,7 +88,6 @@ Vue.component('hostel-list-detail', {
         availability: true,
         isActive: true
       },{
-        id: 2,
         name: 'WunderLand',
         location: 'Dublin',
         price: {
@@ -104,7 +105,6 @@ Vue.component('hostel-list-detail', {
         availability: true,
         isActive: true
       },{
-        id: 3,
         name: 'Unknown Hostel',
         location: 'Dublin',
         price: {
@@ -122,7 +122,6 @@ Vue.component('hostel-list-detail', {
         availability: true,
         isActive: false
       },{
-        id: 4,
         name: 'Medium Hostel',
         location: 'Berlin',
         price: {
@@ -141,18 +140,16 @@ Vue.component('hostel-list-detail', {
         isActive: true
       }]
     },
-    // methods: {
-    // },
     computed: {
-      filteredHostels () {
+      hostelsShown () {
         return this.hostels
-          .filter(hostel => hostel.name.toLowerCase().startsWith(this.userSearch))
-          .map(hostel => {
-            return {
-              ...hostel,
-              like: this.hostels.indexOf(hostel) !== -1
-            }
-          })
+          .filter(hostel => hostel.name.toLowerCase().includes(this.userSearch))
+      }
+    },
+    methods: {
+      likeHostel (hostel) {
+        console.log(hostel)
+        this.likedHostels.push(hostel)
       }
     }
   })

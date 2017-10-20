@@ -22,7 +22,7 @@ Vue.component('hostel-list-detail', {
           {{ hostel.description }}
         </div>
       </div>
-      <div v-if="hostel.availability" class="ui bottom attached button">
+      <div v-if="hostel.availability" class="ui orange bottom attached button">
         Book now
       </div>
       <div v-else class="ui bottom attached disabled button">
@@ -46,7 +46,10 @@ Vue.component('hostel-list-detail', {
   <br>
 
   <div class="ui cards">
-      <hostel-list-detail v-for="hostel in filteredHostels" :hostel="hostel"></hostel-list-detail>
+    <hostel-list-detail 
+      v-for="hostel in hostelsShown" 
+      :hostel="hostel"
+    ></hostel-list-detail>
   </div>
 
 </div>

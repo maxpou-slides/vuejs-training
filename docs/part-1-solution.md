@@ -79,7 +79,7 @@ var app = new Vue({
               {{ hostel.description }}
           </div>
         </div>
-        <div v-if="hostel.availability" class="ui bottom attached button">
+        <div v-if="hostel.availability" class="ui orange bottom attached button">
           Book now
         </div>
         <div v-else class="ui bottom attached disabled button">
@@ -142,7 +142,7 @@ var app = new Vue({
               {{ hostel.description }}
           </div>
         </div>
-        <div v-if="hostel.availability" class="ui bottom attached button">
+        <div v-if="hostel.availability" class="ui orange bottom attached button">
           Book now
         </div>
         <div v-else class="ui bottom attached disabled button">
@@ -246,7 +246,7 @@ var app = new Vue({
   <br>
 
   <div class="ui cards">
-    <div class="card" v-for="hostel in filteredHostels" v-show="hostel.isActive">
+    <div class="card" v-for="hostel in hostelsShown" v-show="hostel.isActive">
       <div class="content">
         <div class="right floated meta">{{ hostel.price.amount }}{{ hostel.price.currency }}</div>
         <div class="header">{{ hostel.name }}</div>
@@ -263,7 +263,7 @@ var app = new Vue({
             {{ hostel.description }}
         </div>
       </div>
-      <div v-if="hostel.availability" class="ui bottom attached button">
+      <div v-if="hostel.availability" class="ui orange bottom attached button">
         Book now
       </div>
       <div v-else class="ui bottom attached disabled button">
@@ -350,8 +350,8 @@ var app = new Vue({
     }]
   },
   computed: {
-    filteredHostels () {
-      return this.hostels.filter(hostel => hostel.name.toLowerCase().startsWith(this.userSearch))
+    hostelsShown () {
+      return this.hostels.filter(hostel => hostel.name.toLowerCase().includes(this.userSearch))
     }
   }
 })

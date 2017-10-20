@@ -1,28 +1,24 @@
 # Part 3: .vue file
 
-## Step 1: switch everything to .vue file!
+## Step 1: setup a vue project
 
 ```
 npm install -g vue-cli
-vue init webpack hostel-land
-cd hostel-land
+vue init webpack hostel-vue
+cd hostel-vue
 npm install
 
 npm run dev
 ```
 
-Replace the Hello.vue by `HostelList.vue`
+## Step 2: switch everything to .vue files!
 
-
-## Step 2: split components
-
-Separate `HostelList.vue` into 2 components:
-
-* `HostelList.vue`
-* `HostelListItem.vue`
+Replace the Hello.vue by `HostelList.vue`. Then create a `HostelListItem.vue` file.
+You should have something like this:
 
 ```
-├── src/components/
+src/
+├── components/
 │   ├── HostelList.vue
 │   ├── HostelListItem.vue
 ```

@@ -1,4 +1,4 @@
-# Vue Training
+# [Vue Training](https://github.com/maxpou-slides/vuejs-training)
 
 [![Build Status](https://travis-ci.org/maxpou-slides/vuejs-training.svg?branch=master)](https://travis-ci.org/maxpou-slides/vuejs-training)
 

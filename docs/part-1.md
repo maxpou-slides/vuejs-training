@@ -197,4 +197,14 @@ New set of data:
 
 ## Step Bonus: create a filter
 
-Add an input to filter the showed properties.
+Add an input text to filter the showed properties by their name.
+
+**Tip!**: HTML template for the input text
+
+```html
+<form class="ui form">
+  <div class="field">
+    <input type="text" placeholder="filter by name">
+  </div>
+</form>
+```

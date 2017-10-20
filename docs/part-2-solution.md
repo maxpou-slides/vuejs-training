@@ -19,7 +19,7 @@ Vue.component('hostel-list-detail', {
           <i v-if="hostel.bonus.hasBar" class="bar icon"></i>
         </div>
         <div class="description">
-            {{ hostel.description }}
+          {{ hostel.description }}
         </div>
       </div>
       <div v-if="hostel.availability" class="ui bottom attached button">

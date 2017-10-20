@@ -67,6 +67,7 @@ Print on the web page the informations related to the hostel:
     <div class="meta">location</div>
     <div class="description">
         description
+    </div>
   </div>
 </div>
 ```

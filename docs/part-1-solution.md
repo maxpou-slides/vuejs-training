@@ -18,18 +18,18 @@
   <div class="ui cards">
 
 
-      <div class="card">
-        <div class="content">
-          <div class="right floated meta">{{ hostel.price.amount }}{{ hostel.price.currency }}</div>
-          <div class="header">{{ hostel.name }}</div>
-        </div>
-        <div class="content">
-          <div class="meta">{{ hostel.location }}</div>
-          <div class="description">
-              {{ hostel.description }}
-          </div>
+    <div class="card">
+      <div class="content">
+        <div class="right floated meta">{{ hostel.price.amount }}{{ hostel.price.currency }}</div>
+        <div class="header">{{ hostel.name }}</div>
+      </div>
+      <div class="content">
+        <div class="meta">{{ hostel.location }}</div>
+        <div class="description">
+            {{ hostel.description }}
         </div>
       </div>
+    </div>
 
 
   </div>

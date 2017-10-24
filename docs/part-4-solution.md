@@ -4,7 +4,7 @@
 // config/prod.env.js
  module.exports = {
   NODE_ENV: '"production"',
-  SWAPI_URL: "'http://slides.maxpou.fr/vuejs-training/resources/'"
+  HOSTELS_URL: "'http://slides.maxpou.fr/vuejs-training/resources/'"
 }
 ```
 
@@ -13,7 +13,7 @@
 import axios from 'axios'
 
 export function getAll () {
-  return axios.get(process.env.API_URL + 'hostel.json').then(response => response.data)
+  return axios.get(process.env.API_URL + 'hostels.json').then(response => response.data)
 }
 ```
 
@@ -23,6 +23,12 @@ import * as hostelApi from '../api/hostels'
 
 export default {
   // ...
+  data () {
+    return {
+      // ...
+      hostels: [] // <- put an empty array
+    }
+  },
   created () {
     hostelApi.getAll().then(data => {
       this.hostels = data

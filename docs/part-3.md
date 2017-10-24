@@ -2,7 +2,7 @@
 
 ## Step 1: setup a vue project
 
-```
+```bash
 npm install -g vue-cli
 vue init webpack hostel-vue
 cd hostel-vue

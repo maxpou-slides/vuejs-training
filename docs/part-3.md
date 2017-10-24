@@ -22,3 +22,5 @@ src/
 │   ├── HostelList.vue
 │   ├── HostelListItem.vue
 ```
+
+**Tip!**: You can import a component from another one like this: `import MyComponent from './MyComponent'`

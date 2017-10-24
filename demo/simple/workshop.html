@@ -24,18 +24,18 @@
   <br>
 
   <div class="ui cards">
-    <hostel-list-detail 
+    <hostel-list-item 
       v-for="hostelShown in hostelsShown"
       v-if="hostelShown.isActive"
       :hostel="hostelShown"
       :like="likedHostels.indexOf(hostelShown) !== -1"
       v-on:like="likeHostel"
-    ></hostel-list-detail>
+    ></hostel-list-item>
   </div>
 
 </div>
 <script>
-Vue.component('hostel-list-detail', {
+Vue.component('hostel-list-item', {
   template: `
     <div class="card">
       <div class="content">

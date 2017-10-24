@@ -1,6 +1,5 @@
 <template>
   <div class="ui container">
-    <h1 class="ui center aligned header">HostelVue</h1>
 
     <form class="ui form">
       <div class="inline fields">

@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <HostelList/>
+    <h1 class="ui center aligned header">HostelVue</h1>
+    <div class="ui two item menu">
+      <router-link to="/list" class="item" active-class="active"><i class="grid layout icon"></i> List</router-link>
+      <router-link to="/map" class="item" active-class="active"><i class="map icon"></i> Map</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HostelList from './components/HostelList'
-
 export default {
-  name: 'app',
-  components: {
-    HostelList
-  }
+  name: 'app'
 }
 </script>
 

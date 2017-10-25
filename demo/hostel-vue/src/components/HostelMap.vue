@@ -4,27 +4,61 @@
 </template>
 
 <script>
-/* global ol */
+/* global google */
+/* eslint no-new: "off" */
 export default {
-  mounted () {
-    const map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
+  props: ['hostels'],
+  data () {
+    return {
+      map: {},
+      markers: []
+    }
+  },
+  methods: {
+    createMarker (hostel) {
+      return new google.maps.Marker({
+        position: {
+          lat: hostel.coords.lat,
+          lng: hostel.coords.lon
+        },
+        map: this.map,
+        label: hostel.name,
+        data: hostel
       })
+    }
+  },
+  watch: {
+    hostels () {
+      this.markers.forEach(marker => {
+        marker.setMap(null)
+      })
+      this.hostels.forEach(hostel => {
+        const marker = this.markers.find(m => m.data === hostel)
+        if (typeof marker === 'undefined') {
+          this.markers.push(this.createMarker(hostel))
+        } else {
+          marker.setMap(this.map)
+        }
+      })
+    }
+  },
+  mounted () {
+    const DUBLIN = {
+      lat: 53.34,
+      lng: -6.26
+    }
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: DUBLIN
+    })
+    this.hostels.forEach((hostel) => {
+      this.markers.push(this.createMarker(hostel))
     })
   }
 }
 </script>
-<style>
+<style scoped>
 .map {
-  height: 400px;
-  width: 100%;
+  height: 600px;
 }
 </style>

@@ -6,8 +6,8 @@
 * [Part 3: .vue file](./docs/part-3.md)
 * [Part 4: HTTP&Axios](./docs/part-4.md)
 * [Part 5: Router](./docs/part-5.md)
-* [Part 6: Vuex](#)
-* [Part 7: Testing with Jest](#)
+* [Part 6: Vuex](./docs/part-5.md)
+* [Part 7: Testing with Jest](./docs/part-5.md)
 
 * Solutions
   * [Part 1: Playing with Vue Syntax](./docs/part-1-solution.md)

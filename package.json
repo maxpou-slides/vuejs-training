@@ -11,13 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/maxpou-slides/vuejs-training.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Maxence POUTORD <maxence.poutord@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/maxpou-slides/vuejs-training/issues"
   },
   "homepage": "https://github.com/maxpou-slides/vuejs-training#readme",
-  "devDependencies": {
-    "gitbook-cli": "^2.3.2"
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-ga": "^1.0.0"
   }
 }

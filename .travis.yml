@@ -5,11 +5,8 @@ cache:
   directories:
     - node_modules
 
-before_install:
-  - "npm install gitbook-cli -g"
-
 before_deploy:
-  - "gitbook build"
+  - "npm run doc:build"
 
 deploy:
   provider: pages

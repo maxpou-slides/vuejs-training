@@ -1,6 +1,6 @@
 # Part 1: Playing with Vue Syntax - SOLUTION
 
-## Step 1
+## Step 1
 
 ```html
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ var app = new Vue({
 </html>
 ```
 
-## Step 2
+## Step 2
 
 ```html
 <div id="app" class="ui container">
@@ -117,7 +117,7 @@ var app = new Vue({
 </script>
 ```
 
-## Step 3
+## Step 3
 
 ```html
 <div id="app" class="ui container">
@@ -232,7 +232,7 @@ var app = new Vue({
 ```
 
 
-## Step Bonus
+## Step Bonus
 
 ```html
 <div id="app" class="ui container">

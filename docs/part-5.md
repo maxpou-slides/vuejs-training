@@ -4,6 +4,7 @@ Our final goal is to create something like this:
 
 ![](../resources/workshop-5.png)
 
+
 ## Step 1: setup routing
 
 You can install vue-router like the following:
@@ -143,8 +144,7 @@ export default {
   ```
 
 
-
-## Step 3: move filters on top
+## Step 3: move filters on top
 
 We now want to move the filter from `HostelList.vue` to his parent (`App.vue`). 
 So, `HostelMap.vue` can share the user filter (there is nothing to do on this file!).

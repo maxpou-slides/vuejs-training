@@ -1,10 +1,10 @@
-# Part 4: Routing - SOLUTION
+# Part 5: Routing - SOLUTION
 
-## Step 1: setup routing
+## Step 1
 
 Nothing specific here. Just follow the instructions.
 
-## Step 2: create a new representation of hostels
+## Step 2
 
 Nothing specific here. Just follow the instructions.
 
@@ -35,7 +35,7 @@ export default new Router({
 })
 ```
 
-## Step 3: 
+## Step 3
 
 ### App.vue
 

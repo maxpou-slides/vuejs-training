@@ -26,6 +26,6 @@ The parent component have to store the liked hostels.
 <i class="red heart icon"></i>
 ```
 
-## Step 3: create a filter 'liked hostels'
+## Step 3: create a filter 'liked hostels'
 
 Allow user to list only liked hostels

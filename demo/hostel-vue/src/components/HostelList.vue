@@ -3,11 +3,9 @@
 
     <div class="ui centered cards">
       <hostel-list-item
-        v-for="(hostelShown, index) in hostels" :key="index"
-        v-if="hostelShown.isActive"
-        :hostel="hostelShown"
-        :like="likedHostels.indexOf(hostelShown) !== -1"
-        v-on:like="$emit('like', hostelShown)"
+        v-for="(hostel, index) in hostels" :key="index"
+        v-if="hostel.isActive"
+        :hostel="hostel"
       ></hostel-list-item>
     </div>
 
@@ -15,12 +13,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HostelListItem from './HostelListItem'
 
 export default {
   components: {
     HostelListItem
   },
-  props: ['hostels', 'likedHostels']
+  computed: {
+    ...mapGetters({
+      hostels: 'hostelsShown'
+    })
+  }
 }
 </script>

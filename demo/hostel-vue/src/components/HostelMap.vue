@@ -6,13 +6,19 @@
 <script>
 /* global google */
 /* eslint no-new: "off" */
+import { mapGetters } from 'vuex'
+
 export default {
-  props: ['hostels'],
   data () {
     return {
       map: {},
       markers: []
     }
+  },
+  computed: {
+    ...mapGetters({
+      hostels: 'hostelsShown'
+    })
   },
   methods: {
     createMarker (hostel) {

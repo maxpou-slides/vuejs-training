@@ -7,11 +7,11 @@
         <router-link to="/list" class="item" active-class="active"><i class="grid layout icon"></i> List</router-link>
         <router-link to="/map" class="item" active-class="active"><i class="map icon"></i> Map</router-link>
         <div class="item">
-          <i :class="onlyShowLiked ? 'red' : 'grey'" class="heart icon" @click="toogleLikeFilter" title="Only show liked hostels"></i>
+          <i :class="onlyShowLiked ? 'red' : 'grey'" class="heart icon" @click="LIKE_FILTER_CHANGE" title="Only show liked hostels"></i>
         </div>
         <div class="item">
           <div class="ui transparent icon input">
-            <input type="text" placeholder="Filter..." v-model="userSearch">
+            <input type="text" placeholder="Filter..." :value="userSearch" @input="updateSearchFilter">
             <i class="search link icon"></i>
           </div>
         </div>
@@ -19,57 +19,35 @@
     </div>
     <br>
 
-    <router-view :hostels="hostelsShown" :likedHostels="likedHostels" v-on:like="likeHostel"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import * as hostelApi from './api/hostels'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'app',
-  data () {
-    return {
-      hostels: [],
-      userSearch: '',
-      onlyShowLiked: false,
-      likedHostels: []
-    }
-  },
   computed: {
-    hostelsShown () {
-      const likeFilter = (hostel) => {
-        if (this.onlyShowLiked) {
-          return this.likedHostels.indexOf(hostel) !== -1
-        }
-        return true
-      }
-
-      return this.hostels
-        .filter(likeFilter)
-        .filter(hostel => hostel.name.toLowerCase().includes(this.userSearch.toLowerCase()))
-    }
-  },
-  created () {
-    hostelApi.getAll().then(data => {
-      this.hostels = data
+    ...mapState({
+      userSearch: state => state.hostelList.userSearch,
+      onlyShowLiked: state => state.hostelList.onlyShowLiked
     })
   },
   methods: {
-    likeHostel (hostel) {
-      if (this.likedHostels.indexOf(hostel) === -1) {
-        this.likedHostels.push(hostel)
-      } else {
-        this.likedHostels.splice(this.likedHostels.indexOf(hostel), 1)
-      }
-    },
-    toogleLikeFilter () {
-      if (this.onlyShowLiked === false) {
-        this.onlyShowLiked = true
-      } else {
-        this.onlyShowLiked = false
-      }
+    ...mapMutations([
+      'LIKE_FILTER_CHANGE',
+      'TEXT_FILTER_CHANGE'
+    ]),
+    ...mapActions([
+      'loadHostels'
+    ]),
+    updateSearchFilter (e) {
+      this.TEXT_FILTER_CHANGE(e.target.value)
     }
+  },
+  mounted () {
+    this.loadHostels()
   }
 }
 </script>

@@ -36,7 +36,7 @@ npm run dev
 
 ## Step 2
 
-### src/App.vue
+### src/App.vue
 
 ```html
 <template>
@@ -75,7 +75,7 @@ i.heart.icon:hover {
 </style>
 ```
 
-### src/components/HostelList.vue
+### src/components/HostelList.vue
 
 ```html
 <template>
@@ -227,7 +227,7 @@ export default {
 
 ```
 
-### src/components/HostelListItem.vue
+### src/components/HostelListItem.vue
 
 ```html
 <template>

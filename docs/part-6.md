@@ -7,36 +7,36 @@
   npm i vuex
   ```
 
-2. Create an emtpy store
+2. Create an empty store
   ```js
-// src/store/index.js
-import Vue from 'vue'
-import Vuex from 'vuex'
+  // src/store/index.js
+  import Vue from 'vue'
+  import Vuex from 'vuex'
 
-Vue.use(Vuex)
+  Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production'
+  const debug = process.env.NODE_ENV !== 'production'
 
-const store = new Vuex.Store({
-  strict: debug
-})
+  const store = new Vuex.Store({
+    strict: debug
+  })
 
-export default store
+  export default store
   ```
 
 3. Rely the main Vue App with the store
   ```js
-// src/main.js
-import store from './store'
-// ...
-
-new Vue({
+  // src/main.js
+  import store from './store'
   // ...
-  store,
-})
+
+  new Vue({
+    // ...
+    store,
+  })
   ```
 
-Restart your application (`npm run dev`) and open the DevTools > Vuex tab. The message *No Vuex store detected.* should desapear. You should now see an empty state.
+Restart your application (`npm run dev`) and open the DevTools > Vuex tab. The message *No Vuex store detected.* should disappear. You should now see an empty state.
 
 ## Step 2: Define your first module
 
@@ -82,10 +82,10 @@ const store = new Vuex.Store({
 
 ### Vuex: initial state
 
-The first question you need to ask to yourself is: "Which data need to be shared accross multiples components".
+The first question you need to ask to yourself is: "Which data need to be shared across multiples components".
 
 * `hostels`? Well, HostelList and HostelMap components only use **hostelsShown**. But hostelsShown is a computed property based on hostels. That's why we need it. For the same reason `userSearch`, `onlyShowLiked` and `likedHostels` are also needed.
-* `map`/`markers`? No. Theses data are only for HostelMap component. As it stand, HostelList or whatever else compoenent doesn't need this data.
+* `map`/`markers`? No. Theses data are only for HostelMap component. As it stand, HostelList or whatever else component doesn't need this data.
 
 ```js
 const state = {
@@ -160,7 +160,7 @@ const mutations = {
 }
 ```
 
-...what bout load hostel method?
+...what about load hostel method?
 This operation is asynchronous. That why, it should be on the actions part!
 
 ### Vuex: actions

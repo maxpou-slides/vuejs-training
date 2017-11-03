@@ -10,7 +10,7 @@ Our final goal is to create something like this:
 You can install vue-router like the following:
 
   ```bash
-  npm install vue-router
+npm install vue-router
   ```
 
 Then let's configure our first route:
@@ -62,75 +62,76 @@ We're going to use Google Map API.
 
 1. Add this script at the end of index.html
   ```html
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtvfPKi-BxCcfl6drliPs-grwK2CSa_iU"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtvfPKi-BxCcfl6drliPs-grwK2CSa_iU"></script>
   ```
-2. Create a new component : `HostelMap.vue`
-  ```html
-<template>
-  <div id="map" class="map ui container">
-  </div>
-</template>
+2. Create a new component: `HostelMap.vue`:
+```html
+  <template>
+    <div id="map" class="map ui container">
+    </div>
+  </template>
 
-<script>
-/* global google */
-/* eslint no-new: "off" */
-export default {
-  props: ['hostels'],
-  data () {
-    return {
-      map: {},
-      markers: []
-    }
-  },
-  methods: {
-    createMarker (hostel) {
-      return new google.maps.Marker({
-        position: {
-          lat: hostel.coords.lat,
-          lng: hostel.coords.lon
-        },
-        map: this.map,
-        label: hostel.name,
-        data: hostel
+  <script>
+  /* global google */
+  /* eslint no-new: "off" */
+  export default {
+    props: ['hostels'],
+    data () {
+      return {
+        map: {},
+        markers: []
+      }
+    },
+    methods: {
+      createMarker (hostel) {
+        return new google.maps.Marker({
+          position: {
+            lat: hostel.coords.lat,
+            lng: hostel.coords.lon
+          },
+          map: this.map,
+          label: hostel.name,
+          data: hostel
+        })
+      }
+    },
+    watch: {
+      hostels () {
+        this.markers.forEach(marker => {
+          marker.setMap(null)
+        })
+        this.hostels.forEach(hostel => {
+          const marker = this.markers.find(m => m.data === hostel)
+          if (typeof marker === 'undefined') {
+            this.markers.push(this.createMarker(hostel))
+          } else {
+            marker.setMap(this.map)
+          }
+        })
+      }
+    },
+    mounted () {
+      const DUBLIN = {
+        lat: 53.34,
+        lng: -6.26
+      }
+      this.map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: DUBLIN
+      })
+      this.hostels.forEach((hostel) => {
+        this.markers.push(this.createMarker(hostel))
       })
     }
-  },
-  watch: {
-    hostels () {
-      this.markers.forEach(marker => {
-        marker.setMap(null)
-      })
-      this.hostels.forEach(hostel => {
-        const marker = this.markers.find(m => m.data === hostel)
-        if (typeof marker === 'undefined') {
-          this.markers.push(this.createMarker(hostel))
-        } else {
-          marker.setMap(this.map)
-        }
-      })
-    }
-  },
-  mounted () {
-    const DUBLIN = {
-      lat: 53.34,
-      lng: -6.26
-    }
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: DUBLIN
-    })
-    this.hostels.forEach((hostel) => {
-      this.markers.push(this.createMarker(hostel))
-    })
   }
-}
-</script>
-<style scoped>
-.map {
-  height: 600px;
-}
-</style>
+  </script>
+  <style scoped>
+  .map {
+    height: 600px;
+  }
+  </style>
   ```
+
 3. Add one new route
 4. Adapt the templates
   ```html

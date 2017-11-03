@@ -12,4 +12,4 @@ API link: http://slides.maxpou.fr/vuejs-training/resources/hostels.json
   npm install axios
   ```
 
-* You can store variable in `config/prod.env.js` file and access to this variable with `process.env.NODE_ENV`
+* You can store variable in `config/prod.env.js` file and access to this variable with `process.env.NODE_ENV`. Check official documentation about [Environment Variables](http://vuejs-templates.github.io/webpack/env.html).

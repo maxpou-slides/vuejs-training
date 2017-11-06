@@ -13,7 +13,7 @@ npm run dev
 
 ## Step 2: switch everything to .vue files!
 
-Replace the Hello.vue by `HostelList.vue`. Then create a `HostelListItem.vue` file.
+Rename the `Hello.vue` by `HostelList.vue`. Then create a `HostelListItem.vue` file.
 You should have something like this:
 
 ```
@@ -23,4 +23,4 @@ src/
 │   ├── HostelListItem.vue
 ```
 
-**Tip!**: You can import a component from another one like this: `import MyComponent from './MyComponent'`
+**Tip!**: You can import a component from another one like this: `import MyComponent from './MyComponent'`. Don't need to put .vue at the end!

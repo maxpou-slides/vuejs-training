@@ -23,4 +23,7 @@ src/
 │   ├── HostelListItem.vue
 ```
 
-**Tip!**: You can import a component from another one like this: `import MyComponent from './MyComponent'`. Don't need to put .vue at the end!
+**Tip!**: 
+
+* Put the CSS file related to the framework the `<head>` of the `index.html` file
+* You can import a component from another one like this: `import MyComponent from './MyComponent'`. Don't need to put .vue at the end!

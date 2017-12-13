@@ -1,4 +1,4 @@
-# Part 3: .vue file
+# Part 3: .vue files
 
 ## Step 1: setup a vue project
 

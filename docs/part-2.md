@@ -1,4 +1,4 @@
-# Part 2: components
+# Part 2: Components
 
 Our final goal is to create something like this:
 

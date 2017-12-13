@@ -1,4 +1,4 @@
-# Vue JS Workshop
+# Vue.js Workshop
 
 ## Useful links:
 

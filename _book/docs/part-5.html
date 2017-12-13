@@ -1,0 +1,571 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 5: Routing · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="part-6.html" />
+    
+    
+    <link rel="prev" href="part-4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Workshop introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="part-1.html">
+            
+                <a href="part-1.html">
+            
+                    
+                    Part 1: Playing with Vue Syntax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="part-2.html">
+            
+                <a href="part-2.html">
+            
+                    
+                    Part 2: Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="part-3.html">
+            
+                <a href="part-3.html">
+            
+                    
+                    Part 3: .vue file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="part-4.html">
+            
+                <a href="part-4.html">
+            
+                    
+                    Part 4: HTTP&Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="part-5.html">
+            
+                <a href="part-5.html">
+            
+                    
+                    Part 5: Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="part-6.html">
+            
+                <a href="part-6.html">
+            
+                    
+                    Part 6: Vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="part-7.html">
+            
+                <a href="part-7.html">
+            
+                    
+                    Part 7: Testing with Jest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Solutions
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="part-1-solution.html">
+            
+                <a href="part-1-solution.html">
+            
+                    
+                    Part 1: Playing with Vue Syntax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="part-2-solution.html">
+            
+                <a href="part-2-solution.html">
+            
+                    
+                    Part 2: Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="part-3-solution.html">
+            
+                <a href="part-3-solution.html">
+            
+                    
+                    Part 3: .vue file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="part-4-solution.html">
+            
+                <a href="part-4-solution.html">
+            
+                    
+                    Part 4: HTTP&Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="part-5-solution.html">
+            
+                <a href="part-5-solution.html">
+            
+                    
+                    Part 5: Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="part-6-solution.html">
+            
+                <a href="part-6-solution.html">
+            
+                    
+                    Part 6: Vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 5: Routing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-5-routing">Part 5: Routing</h1>
+<p>Our final goal is to create something like this:</p>
+<p><img src="../resources/workshop-5.png" alt=""></p>
+<h2 id="step-1-setup-routing">Step 1: setup routing</h2>
+<p>You can install vue-router like the following:</p>
+<pre><code class="lang-bash">npm install vue-router
+</code></pre>
+<p>Then let&apos;s configure our first route:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+<span class="hljs-keyword">import</span> HostelList <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/HostelList&apos;</span>
+
+Vue.use(Router)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+  routes: [
+    {
+      path: <span class="hljs-string">&apos;/&apos;</span>,
+      redirect: <span class="hljs-string">&apos;/list&apos;</span>
+    }, {
+      path: <span class="hljs-string">&apos;/list&apos;</span>,
+      name: <span class="hljs-string">&apos;List&apos;</span>,
+      component: HostelList
+    }
+  ]
+})
+</code></pre>
+<p>In the main.js, add the router to the Vue instance:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">&apos;#app&apos;</span>,
+  router,
+  template: <span class="hljs-string">&apos;&lt;App/&gt;&apos;</span>,
+  components: { App }
+})
+</code></pre>
+<h2 id="step-2-create-a-new-representation-of-hostels">Step 2: create a new representation of hostels</h2>
+<p>We now want to see where the hostels are on the map.</p>
+<p>The global overview should look like this:</p>
+<p><img src="../resources/workshop-5-1.png" alt=""></p>
+<p>We&apos;re going to use Google Map API.</p>
+<ol>
+<li>Add this script at the end of index.html<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyCtvfPKi-BxCcfl6drliPs-grwK2CSa_iU&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Create a new component: <code>HostelMap.vue</code>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;map ui container&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-comment">/* global google */</span>
+<span class="hljs-comment">/* eslint no-new: &quot;off&quot; */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+ props: [<span class="hljs-string">&apos;hostels&apos;</span>],
+ data () {
+   <span class="hljs-keyword">return</span> {
+     map: {},
+     markers: []
+   }
+ },
+ methods: {
+   createMarker (hostel) {
+     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> google.maps.Marker({
+       position: {
+         lat: hostel.coords.lat,
+         lng: hostel.coords.lon
+       },
+       map: <span class="hljs-keyword">this</span>.map,
+       label: hostel.name,
+       data: hostel
+     })
+   }
+ },
+ watch: {
+   hostels () {
+     <span class="hljs-keyword">this</span>.markers.forEach(marker =&gt; {
+       marker.setMap(<span class="hljs-literal">null</span>)
+     })
+     <span class="hljs-keyword">this</span>.hostels.forEach(hostel =&gt; {
+       <span class="hljs-keyword">const</span> marker = <span class="hljs-keyword">this</span>.markers.find(m =&gt; m.data === hostel)
+       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> marker === <span class="hljs-string">&apos;undefined&apos;</span>) {
+         <span class="hljs-keyword">this</span>.markers.push(<span class="hljs-keyword">this</span>.createMarker(hostel))
+       } <span class="hljs-keyword">else</span> {
+         marker.setMap(<span class="hljs-keyword">this</span>.map)
+       }
+     })
+   }
+ },
+ mounted () {
+   <span class="hljs-keyword">const</span> DUBLIN = {
+     lat: <span class="hljs-number">53.34</span>,
+     lng: <span class="hljs-number">-6.26</span>
+   }
+   <span class="hljs-keyword">this</span>.map = <span class="hljs-keyword">new</span> google.maps.Map(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;map&apos;</span>), {
+     zoom: <span class="hljs-number">14</span>,
+     center: DUBLIN
+   })
+   <span class="hljs-keyword">this</span>.hostels.forEach((hostel) =&gt; {
+     <span class="hljs-keyword">this</span>.markers.push(<span class="hljs-keyword">this</span>.createMarker(hostel))
+   })
+ }
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.map</span> {
+ <span class="hljs-attribute">height</span>: <span class="hljs-number">600px</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Add one new route</p>
+</li>
+<li>Adapt the templates<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- how to render the menu --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui two item menu&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/list&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">active-class</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;grid layout icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> List<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/map&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">active-class</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;map icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> Map<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- don&apos;t forget to pass a property hostel to subcomponents --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">router-view</span> <span class="hljs-attr">:hostels</span>=<span class="hljs-string">&quot;hostels&quot;</span>&gt;</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="step-3-move-filters-on-top">Step 3: move filters on top</h2>
+<p>We now want to move the filter from <code>HostelList.vue</code> to his parent (<code>App.vue</code>). 
+So, <code>HostelMap.vue</code> can share the user filter (there is nothing to do on this file!).</p>
+<p>The global overview should look like this:</p>
+<p><img src="../resources/workshop-5-2.png" alt=""></p>
+<p>==&gt; todo give template of the menu</p>
+<h2 id="did-you-see">Did you see?</h2>
+<p>More intermediate components we add, more it&apos;s complicated to pass properties/events. </p>
+<p><img src="../resources/workshop-5-3.png" alt=""></p>
+<blockquote>
+<p>we should better manage the <strong>global state</strong></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="part-4.html" class="navigation navigation-prev " aria-label="Previous page: Part 4: HTTP&Axios">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="part-6.html" class="navigation navigation-next " aria-label="Next page: Part 6: Vuex">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 5: Routing","level":"1.7","depth":1,"next":{"title":"Part 6: Vuex","level":"1.8","depth":1,"path":"docs/part-6.md","ref":"./docs/part-6.md","articles":[]},"previous":{"title":"Part 4: HTTP&Axios","level":"1.6","depth":1,"path":"docs/part-4.md","ref":"./docs/part-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ga"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-67868977-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/part-5.md","mtime":"2017-12-13T14:09:33.092Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-13T14:10:45.943Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vue.js Training</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/pikestreet.css">
+<link rel="stylesheet" href="css/github.css">
+<!-- Printing and PDF exports -->
+<script>
+var link  = document.createElement( 'link' );
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+<script src="https://unpkg.com/vue"></script>  
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+  <section>
+    <section data-background-image="img/vue-bg.png">
+      <h2>Vue.js</h2>
+      <h3><i>/vjuː/</i></h3>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue.js</h2>
+      <ul>
+        <li>Framework(/Library) to create interfaces (views)</li>
+        <li>Oriented components</li>
+        <li>Easy to use, straightforward syntax</li>
+        <li>Use declarative rendering</li>
+      </ul>
+      <aside class="notes">
+        NPM Trends: http://www.npmtrends.com/angular-vs-react-vs-vue-vs-@angular/core
+      </aside>
+    </section>
+    <section>
+      <h2>Who's using VueJS</h2>
+      <ul>
+        <li>Gitlab</li>
+        <li>Laravel website</li>
+        <li>Baidu</li>
+        <li>Alibaba</li>
+        <li>Tencent</li>
+        <li>Xiaomi</li>
+        <li>Expedia</li>
+        <li><a href="https://newsfeed.fb.com">...and Facebook!</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>(quick) Setup</h2>
+      <pre class="fragment"><code data-trim>
+          <script src="https://unpkg.com/vue"></script>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  {{ message }}
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello hostel!'
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Declarative</h2>
+      <h4>Tell <b>WHAT</b> you render instead of <b>HOW</b></h4>
+      <img src="./img/complex-simple.gif" alt="simple">
+    </section>
+    <section>
+      <h2>Declarative rendering</h2>
+      <img src="./img/reactive-rendering.png" alt="declarative rendering">
+    </section>
+    <section>
+      <h2>DevTools</h2>
+      <img src="./img/devtool.png" alt="declarative rendering" style="width: 60%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-1.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-2.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-3.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-4.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-5.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section id="virtualdom">
+      <h2>Virtual DOM: Example</h2>
+      <div id="counterDemo">
+        <p>Counter: <span>{{ counter }}</span></p>
+        <p><i>(open Chrome DevTools)</i></p>
+      </div>
+      <script>
+window.onload = () => {
+  Reveal.addEventListener('slidechanged', (event) => {
+    if (event.currentSlide.id === 'virtualdom') {
+      counterDemo.counter = 0
+    }
+  })
+}
+
+var counterDemo = new Vue({
+  el: '#counterDemo',
+  name: 'counter',
+  data: {
+    counter: 0
+  },
+  created () {
+    setInterval(() => {
+      this.counter++
+    }, 1000)
+  }
+})
+      </script>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>The Vue Syntax</h2>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-if</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    hostel: {
+      name: 'Happy Hostel',
+      availability: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-else</h2>
+      <pre><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
+    <a v-else disabled>Too late!</a>
+  </div>
+</div>
+      </code></pre>
+      <pre><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    hostel: {
+      name: 'Happy Hostel',
+      availability: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+  <section>
+      <h2>Conditional rendering: v-show</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-show="hostel.isActive">
+    <h2>{{ hostel.name }}</h2>
+    <a v-if="hostel.availability">Book now</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    hostel: {
+      name: 'Happy Hostel',
+      availability: true,
+      isActive: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Loops: v-for</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-for="hostel in hostels">
+    <h2>{{ hostel.name }}</h2>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    hostels: [
+      { name: 'Happy Hostel' },
+      { name: 'Awesome Hostel' },
+      { name: 'Another Hostel' }
+    ]
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Form Input Bindings: v-model</h2>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+<input v-model="message" placeholder="edit me">
+<p>Message: {{ message }}</p>
+      </code></pre>
+
+      <h4 class="fragment" data-fragment-index="1">Example:</h4>
+      <div id="vue-model" class="fragment" data-fragment-index="1">
+        <input v-model="message" placeholder="edit me">
+        <p>Message: <span style="color: #42b983;">{{ message }}</span></p>
+      </div>
+      <script>
+var vueModel = new Vue({
+  el: '#vue-model',
+  name: 'v-model',
+  data: {
+    message: 'Long live v-model!'
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Computed properties</h2>
+      <pre class="fragment"><code data-trim>
+const vueModel = new Vue({
+  el: '#app',
+  data: {
+    message: 'Long live v-model!'
+  },
+  computed: {
+    messageUpperCase () {
+      return this.message.toUpperCase()
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-1.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 1: Playing with Vue Syntax</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Wait... I've to put everything on the same vue?</h2>
+      <h3 class="fragment">Nope.</h3>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>A world of components</h2>
+      <img src="https://media1.giphy.com/media/l0JMrPWRQkTeg3jjO/giphy.gif">
+    </section>
+    <section>
+      <h2>What is a component?</h2>
+      <img src="./img/components.png" alt="components">
+    </section>
+    <section>
+      <h2>Communication between components</h2>
+      <img src="./img/communication.png">
+    </section>
+    <section>
+      <h2>our first component</h2>
+      <pre class="fragment"><code class="language-js" data-trim>
+Vue.component('hostel-detail', {
+  template: `<div>I'm a hostel!</div>`
+})
+
+new Vue({
+  el: '#app'
+})
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <hostel-detail></hostel-detail>
+</div>
+      </code></pre>
+    </section>
+    <section>
+      <h2>Passing properties</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <hostel-detail v-bind:name="'Cool hostel'"></hostel-detail>
+</div>
+      </code></pre>
+      <pre class="fragment"><code class="language-js" data-trim>
+Vue.component('hostel-detail', {
+  template: `<div>hostel: {{ name }}</div>`,
+  props: { 
+    name: String
+  }
+})
+      </code></pre>
+      <p class="fragment">shortcut: <code>:name="'Cool hostel'"</code></p>
+    </section>
+    <section>
+      <h2>Props validation</h2>
+      <pre><code class="language-js" data-trim>
+Vue.component('hostel-price', {
+  template: `<div>Price: {{ price }}</div>`,
+  props: { 
+    price: {
+      type: Number,
+      required: true,
+      validator (value) {
+        return value > 0
+      },
+      default: 100
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Emit events</h2>
+      <pre class="fragment"><code data-trim>
+<div id="emitEvents">
+  <button v-on:click="addToCart(hostel)">{{ hostel.name }}</button>
+</div>
+        </code></pre>
+        <pre class="fragment"><code data-trim>    
+new Vue({
+  el: '#emitEvents',
+  data: {
+    hostel: {
+      name: 'Cool hostel'
+    }
+  },
+  methods: {
+    addToCart (hostel) {
+      this.$emit('selecthostel', hostel)
+    }
+  }
+})
+    </code></pre>
+    <div id="demo-event" class="fragment">
+      <h4>Example</h4>
+      <button v-on:click="addToCart(hostel)">{{ hostel.name }}</button>
+    </div>
+    <script>
+var addToCart = new Vue({
+  el: '#demo-event',
+  name: 'addToCart',
+  data: {
+    hostel: {
+      name: 'Cool hostel'
+    }
+  },
+  methods: {
+    addToCart (hostel) {
+      this.$emit('selecthostel', hostel)
+    }
+  }
+})
+    </script>
+    </section>
+    <section>
+      <h2>Events</h2>
+      <img src="./img/events.png" style="width: 80%;">
+    </section>
+    <section>
+      <h2>Listening events</h2>
+      <pre class="fragment"><code data-trim>
+<div id="hostel-list">
+  <hostel-list-item v-for="(hostel, index) in properties" :key="index"
+  :hostel="hostel" v-on:select="add"></hostel-list-item>
+  <p>Cart: {{ cartToString }}</p>
+</div>            
+      </code></pre>
+      <pre class="fragment"><code data-trim>    
+Vue.component('hostel-list-item', {
+  template: '<button v-on:click="click">+ add {{ hostel }} to cart</button>',
+  props: ['hostel'],
+  methods: {
+    click () {
+      this.$emit('select', this.hostel)
+    }
+  }
+})
+
+var hostelList = new Vue({
+  el: '#hostel-list-demo',
+  name: 'hostelList',
+  data: {
+    properties: ['hostelA', 'hostelB'],
+    cart: []
+  },
+  computed: {
+    cartToString () {
+      return this.cart.length ? this.cart.join(' ') : '(empty)'
+    }
+  },
+  methods: {
+    add (hostel) {
+      this.cart.push(hostel)
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Listening events - Example</h2>
+        <div id="hostel-list-demo">
+          <hostel-list-item v-for="(hostel, index) in properties" :key="index"
+            :hostel="hostel" v-on:select="add"></hostel-list-item>
+          <p>Cart: {{ cartToString }}</p>
+        </div>
+    
+      <script>
+Vue.component('hostel-list-item', {
+  template: '<button v-on:click="click">+ add {{ hostel }} to cart</button>',
+  props: ['hostel'],
+  methods: {
+    click () {
+      this.$emit('select', this.hostel)
+    }
+  }
+})
+
+var hostelList = new Vue({
+  el: '#hostel-list-demo',
+  name: 'hostelList',
+  data: {
+    properties: ['hostelA', 'hostelB'],
+    cart: []
+  },
+  computed: {
+    cartToString () {
+      return this.cart.length ? this.cart.join(' ') : '(empty)'
+    }
+  },
+  methods: {
+    add (hostel) {
+      this.cart.push(hostel)
+    }
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Watchers</h2>
+      <pre class="fragment" data-fragment-index="0"><code data-trim class="language-html">
+<input v-model="appreciation" placeholder="say something good!">
+<p>Vue.JS is...<span>{{ appreciation }}</span></p>
+      </code></pre>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+var vueWatcher = new Vue({
+  el: '#vue-watcher',
+  data: {
+    appreciation: ''
+  },
+  watch: {
+    appreciation (newappreciation) {
+      if (newappreciation === 'bad') {
+        this.appreciation = 'awesome'
+      }
+    }
+  }
+})
+      </code></pre>
+      <div id="vue-watcher-demo" class="fragment" data-fragment-index="1">
+        <h4>Example: <input v-model="appreciation" placeholder="say something good!"></h4>
+        <p>Vue.JS is...<span style="color: #42b983;">{{ appreciation }}</span></p>
+      </div>
+      <script>
+var vueWatcher = new Vue({
+  el: '#vue-watcher-demo',
+  name: 'watcher',
+  data: {
+    appreciation: ''
+  },
+  watch: {
+    appreciation (newappreciation) {
+      if (newappreciation === 'bad') {
+        this.appreciation = 'awesome'
+      }
+    }
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Lifecycle</h2>
+      <img src="./img/lifecycle.png" style="width: 20%;">
+    </section>
+    <section>
+      <h2>Example with <code>mounted()</code></h2>
+      <pre class="fragment"><code class="language-html" data-trim>
+<div id="lifecycle" v-if="starship">
+  <h2>{{ starship.name }}</h2>
+  <h3>{{ starship.model }}</h3>
+</div>
+      </code></pre>
+      <pre class="fragment"><code class="language-js" data-trim>
+const lifecycle = new Vue({
+  el: '#lifecycle',
+  data: {
+    starship: {}
+  },
+  mounted () {
+    fetch('https://swapi.co/api/starships/12/')
+    .then(response => response.json())
+    .then(data => {
+      this.starship = data
+    })
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-2.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 2: Components</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>The .vue File</h2>
+    </section>
+    <section>
+      <img src="./img/vue-file.png" alt="vue file" style="width: 50%;">
+    </section>
+    <section>
+      <h2>What's the magic behind</h2>
+      <img src="./img/webpack.png" alt="vue file" style="width: 50%;">
+    </section>
+    <section>
+      <h2>Benefit: Hot reload ❤️</h2>
+      <img src="./img/vue-hot.gif">
+      <p><i>hot reload > live reload</i></p>
+    </section>
+    <section>
+      <h2>Separation of concerns</h2>
+      <img src="./img/separation-concerns-1.png" alt="Separation of concerns" class="fragment" style="width: 45%;">
+      <img src="./img/separation-concerns-2.png" alt="Separation of concerns" class="fragment" style="width: 40%;">
+    </section>
+    <section>
+      <h2>Getting started!</h2>
+      <pre><code data-trim>
+npm install -g vue-cli
+vue init webpack my-project
+cd my-project
+npm install
+npm run dev 
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-3.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 3: .vue files</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: HTTP</h2>
+    </section>
+    <section>
+      <h2>Let's find something cool</h2>
+      <img src="./img/google-ajax.png">
+      <h2 class="fragment" style="color:orange">Please DON'T! <br> ...and forget your jQuery habits!</h2>
+    </section>
+    <section>
+      <h2>Think JavaScript!</h2>
+      <img src="./img/google-ajax-2.png">
+    </section>
+    <section>
+      <h2>Vue ecosystem: HTTP</h2>
+      <h3><a href="https://github.com/axios/axios"><i class="fa fa-github" aria-hidden="true"></i> axios/axios</a></h3>
+    </section>
+    <section>
+      <h2>File architecture</h2>
+      <pre><code data-trim>
+├── src/
+│   ├── main.js
+│   ├── App.vue
+│   └── api/
+│       ├── bookings.js
+│       ├── hostel.js
+│       └── user.js
+│   └── components/
+│       └── ...
+│   └── .../
+│       └── ...
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example (1/2)</h2>
+      <pre><code data-trim>
+// src/api/hostel.js
+import axios from 'axios'
+
+export function findAll (limit = 25) {
+  return axios.get('hostels/?limit=' + limit)
+              .then(response => response.data)
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example (2/2)</h2>
+      <pre><code data-trim class="language-js">
+import * as hostelApi from '../api/hostels'
+
+export default {
+  data () {
+    return {
+      hostels: []
+    }
+  },
+  created () {
+    hostelApi.findAll().then((data) => {
+      this.hostels = data
+    })
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-4.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 4: HTTP&amp;Axios</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: Routing</h2>
+      <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vue-router</a></h3>
+    </section>
+    <section>
+      <h2>Single Page Application</h2>
+      <img src="./img/spa.png">
+    </section>
+    <section>
+      <h2>Vue-Router</h2>
+      <ul>
+        <li>Simple to use</li>
+        <li>Allow nested routes</li>
+        <li>Window.history</li>
+        <li>Support SSR - Server Side Rendering</li>
+        <li>...</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Installation</h2>
+    </section>
+    <section>
+      <h2>Example: Main template</h2>
+      <pre><code data-trim class="language-html">
+<div id="app">
+  <p>
+      <router-link to="/account">Go to my account</router-link>
+      <router-link to="/bookings">Go to booking</router-link>
+  </p>
+  <router-view></router-view>
+</div>
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example: JS</h2>
+      <pre><code data-trim class="language-js">
+const Account = { template: '<div>account</div>' }
+const Bookings = { template: '<div>bookings</div>' }
+
+const routes = [
+  { path: '/account', component: Account },
+  { path: '/bookings', component: Bookings }
+]
+
+const router = new VueRouter({
+  routes: routes
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-5.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 5: Routing</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: State Management</h2>
+      <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vuex</a></h3>
+    </section>
+    <section>
+      <h2>Why you need a state managemet library?</h2>
+      <img src="./img/state-management.png">
+      <p class="fragment">Components need to share the same state</p>
+    </section>
+    <section>
+      <h2>What is Vuex?</h2>
+      <ul>
+        <li>Inspired by Flux, Redux and The Elm Architecture</li>
+        <li>Provide a centralized store</li>
+        <li>Easy to test!</li>
+      </ul>
+      <img src="./img/vuex-flow.png" style="width: 40%;margin-top: 15px;">
+    </section>
+    <section>
+      <h2>Idea behing Vuex</h2>
+      <img src="./img/vuex.png">
+    </section>
+    <section>
+      <h2>Core concepts</h2>
+      <ul>
+        <li class="fragment space">
+          <b>State</b>: An object containing the data<br>
+          <i>Ex: a list of hostels</i>
+        </li>
+        <li class="fragment space">
+          <b>Getters</b>: A state accessor<br>
+          <i>Ex: getHostels(), getHostelsFromBerlin()...</i>
+        </li>
+        <li class="fragment space">
+          <b>Mutations</b>: perform modifications of data in the state. Must be syncrhonous!<br>
+          <i>Ex: addRoomToSelection()</i>
+        </li>
+        <li class="fragment space">
+          <b>Actions</b>: similar to mutations. Instead of mutating the state, actions commit mutations. Can also be asynchronous<br>
+          <i>Ex: roomApi.fetch(), checkout()</i>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Modules</h2>
+    </section>
+    <section>
+      <h2>File architecture</h2>
+      <pre><code data-trim>
+├── src/
+│   ├── main.js
+│   ├── App.vue
+│   └── api/
+│       └── ...
+│   └── components/
+│       └── ...
+│   └── store/
+│       └── modules/ 
+│           └── ...
+│       ├── index.js
+│       └── mutation-types.js
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example - store side</h2>
+      <pre><code data-trim class="language-js">
+// store/modules/hostel.js
+import * as api from '../api'
+import * as types from '../mutation-types'
+
+export default {
+  state: {
+    hostels: []
+  },
+  getters = {
+    allHostels: state => state.hostels,
+    highRatedHostels: state => state.hostels.filter(h => h.score >= 7)
+  },
+  mutations: {
+    [types.RECEIVE_HOSTEL] (state, hostels) {
+      state.hostels = hostels
+    }
+  },
+  actions: {
+    loadCountryHostels ({ commit }, country) {
+      commit(types.LOAD_HOSTELS_BY_COUNTRY, { country })
+      api.getHostels(country).then(data => {
+        commit(types.RECEIVE_HOSTELS, { data })
+      })
+    }
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example - Component side</h2>
+      <pre><code data-trim class="language-js">
+// MyComponent.vue
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  computed: mapGetters({
+    hostels: 'allHostels'
+  }),
+  methods: mapActions([
+    'loadCountryHostels'
+  ]),
+  created () {
+    this.$store.dispatch('loadCountryHostels', 'Berlin')
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Why actions commit mutations?</h2>
+      <img src="./img/vuex-example-flow.png">
+    </section>
+    <section>
+      <h2>Why actions commit mutations?</h2>
+      <pre><code data-trim class="language-js">
+// store/actions.js
+export const addToSelection = ({ commit }, hostel) => {
+  commit(types.ADD_TO_SELECTION, { hostel })
+}
+      </code></pre>
+      <pre><code data-trim class="language-js">
+// store/modules/hostelList.js
+[types.ADD_TO_SELECTION] (state, { hostel }) {
+  state.hostelList.slice(state.hostelList.indexOf(hostel), 1)
+}
+      </code></pre>
+      <pre><code data-trim class="language-js">
+// store/modules/hostelSelection.js
+[types.ADD_TO_SELECTION] (state, { hostel }) {
+  state.selection.push(hostel)
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>👍 Browsers devtools</h2>
+      <img src="./img/devtools-vuex.gif" style="width: 60%;">
+      <ul>
+        <li>Import/Export state</li>
+        <li>Time travel</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-6.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 6: State management with Vuex</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: Unit Testing</h2>
+      <h3><a href="https://github.com/facebook/jest"><i class="fa fa-globe" aria-hidden="true"></i> Jest</a></h3>
+      <h3><a href="https://vue-test-utils.vuejs.org/"><i class="fa fa-globe" aria-hidden="true"></i> vue/vue-test-utils</a></h3>
+      <img src="./img/jest.png" style="width: 50%;">
+    </section>
+    <section>
+      <h2>Why Jest?</h2>
+      <ul>
+        <li>Watch mode</li>
+        <li>Snapshot testing</li>
+        <li><s>Good</s> code coverage 😥</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Watch mode</h2>
+      <img src="./img/jest-watch.gif">
+    </section>
+    <section>
+      <h2>Run with pattern</h2>
+      <img src="./img/jest-watch-filter.gif">
+    </section>
+    <section>
+      <h2>Installation</h2>
+    </section>
+    <section>
+      <h2>File Architecture</h2>
+        <pre><code data-trim>
+├── test/
+│   ├── __mocks__
+│   ├── __snapshots__
+│   └── api/
+│       └── hostelApi.spec.js
+│   └── components/
+│       └── __snapshots__/
+│           └── Selection.spec.js.snap
+│       └── MyComponent.spec.js
+│   └── store/
+│       └── modules/ 
+│           └── myModule.spec.js
+      </code></pre>
+    </section>
+    <section>
+      <h2>Assertions List</h2>
+      <pre><code data-trim>
+expect(foo).toBe()        // use ===
+expect(foo).toEqual()     // object have same values (not necessary same reference)
+expect(true).toBeTruthy()
+expect(false).toBeFalsy()
+expect('banana').toContain('ban')
+      </code></pre>
+      <p><a href="https://facebook.github.io/jest/docs/en/expect.html"><i class="fa fa-globe" aria-hidden="true"></i> list of assertions</a></p>
+    </section>
+    <section>
+      <h2>Our first test</h2>
+      <iframe src="https://repl.it/languages/jest?lite=true" style="width: 100%;height: -webkit-fill-available;"></iframe>
+    </section>
+    <section>
+      <h3>Now, let's meet the real world!</h3>
+    </section>
+    <section>
+      <h2>Snapshot testing - example</h2>
+        <pre><code data-trim>
+import { mount, shallow } from 'vue-test-utils'
+import MyComponent from '@/components/MyComponent.vue'
+import store from '@/store'
+
+describe('Shop.vue', () => {
+  it('test initial rendering', () => {
+    const wrapper = mount(MyComponent, { store })
+    const template = wrapper.html()
+    expect(template).toMatchSnapshot()
+  })
+})
+      </code></pre>
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-1.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-2.png">
+    </section>
+    <section data-transition="none">
+      <h2>Snapshot testing - flow</h2>
+      <img src="./img/jest-snapshot-flow-3.png">
+    </section>
+    <section>
+      <h2>Testing component interactions (1/2)</h2>
+      <pre><code data-trim class="language-js" >
+it('should do something on close', () => {
+  const wrapper = mount(MyComponent, { store })
+  const button = wrapper.findAll('div.btn')
+  button.trigger('click')
+  expect(/** ... */).toBe('true')
+});
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing component interactions 🚧 TODO 🚧</h2>
+      <pre><code data-trim class="language-js" >
+it('should do something on close', () => {
+  // 🚧 TODO 🚧 
+});
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing Axios calls - Mock part</h2>
+      <pre><code data-trim>
+// tests/unit/specs/__mocks__/axios.js
+import userBookingResponse from '../api/userBooking.response.json'
+
+class Axios {
+  get (url) {
+    if (url === '/users/1/bookings'){
+      const data = userBookingResponse
+    }
+    const response = { status: 200, statusText: 'OK', data: data }
+    return Promise.resolve(response)
+  }
+}
+
+export default new Axios()
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing Axios calls - mock using dynamic imports</h2>
+      <pre><code class="language-js" data-trim data-noescape>
+// tests/unit/specs/__mocks__/axios.js
+class Axios {
+  get (fullUrl) {
+    const url = fullUrl.replace(process.env.API_URL, '')
+
+    switch (url) {
+      case 'users/1': return Promise.resolve({ data: <mark>import('../api/user.1.response.json')</mark> })
+      case 'hostels/?page=3': return Promise.resolve({ data: <mark>import('../api/hostels.3.response.json')</mark> })
+      // ...
+    }
+  }
+}
+
+export default new Axios()
+      </code></pre>
+    </section>
+    <section>
+      <h2>Testing Axios calls - API part</h2>
+      <pre><code data-trim>
+// tests/unit/specs/api/userBookingApi.spec.js
+import userBookingResponse from './userBooking.response.json'
+import * as userBookingApi from '@/api/userBookingApi'
+
+describe('userBooking HTTP', () => {
+  it('getUserBooking() should return the response data', () => {
+    expect.assertions(1)
+    return expect(userBookingApi.getUserBooking()).resolves.toEqual(userBookingResponse)
+  })
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Vuex - Test Getters</h2>
+      <pre><code data-trim>
+it('return all hostels', () => {
+  const state = {
+    hostels: [{ name: 'hostelA'}, { name: 'hostelB'}]
+  }
+
+  const result = hostelStore.getters.allHostels(state)
+  expect(result).toEqual({ name: 'hostelA'}, { name: 'hostelB'})
+})
+      </code></pre>    
+    </section>
+    <section>
+      <h2>Vuex - Test actions (1/2)</h2>
+      <p><a href="https://github.com/maxpou/vue-vuex-jest/blob/master/tests/unit/custom/test-actions.js"><i class="fa fa-globe" aria-hidden="true"></i> Example</a></p>
+      <pre><code data-trim class="language-js">
+// tests/unit/custom/testAction.js
+export const testAction = (action, payload, state, expectedMutations, done) => {
+  let count = 0
+
+  // mock commit
+  const commit = (type, payload) => {
+    const mutation = expectedMutations[count]
+
+    try {
+      expect(mutation.type).toEqual(type)
+      if (payload) {
+        expect(mutation.payload).toEqual(payload)
+      }
+    } catch (error) {
+      done(error)
+    }
+
+    count++
+    if (count >= expectedMutations.length) {
+      done()
+    }
+  }
+
+  // call the action with mocked store and arguments
+  action({ commit, state }, payload)
+
+  // check if no mutations should have been dispatched
+  if (expectedMutations.length === 0) {
+    expect(count).toEqual(0)
+    done()
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Vuex - Test actions (2/2)</h2>
+      <pre><code data-trim class="language-js">
+testAction(hostel.actions.loadCountryHostels, 'Spain', {}, [
+  //expected commits
+  { type: 'LOAD_HOSTELS_BY_COUNTRY', payload: { country: 'Spain' } },
+  { type: 'RECEIVE_HOSTELS', payload: { data: expectedJSONHostels } }
+], done)
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop</h2>
+      <a href="http://slides.maxpou.fr/vuejs-training/_book/docs/part-7.html"><i class="fa fa-globe" aria-hidden="true"></i> Part 7: Testing with Jest</a>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Vue ecosystem: SSR</h2>
+      <h3><a href="https://ssr.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> Vue-SSR</a></h3>
+    </section>
+    <section>
+      <h2>Client Side Rendering (CSR)</h2>
+      <img src="./img/csr.png">
+    </section>
+    <section>
+      <h2>Server Side Rendering (SSR)</h2>
+      <img src="./img/ssr.png">
+    </section>
+    <section>
+      <h2>Reading</h2>
+      <h3>
+        <a href="https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8">
+          <i class="fa fa-medium" aria-hidden="true"></i> The Benefits of Server Side Rendering Over Client Side Rendering <br>- by Alex Grigoryan
+        </a>
+      </h3>
+      <asides class="notes">Environment Agnostic SSR: https://gist.github.com/yyx990803/9bdff05e5468a60ced06c29c39114c6b</asides>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Other</h2>
+    </section>
+    <section>
+      <h2>Sync Vuex &amp; vue-router</h2>
+      <h3><a href="https://github.com/vuejs/vuex-router-sync"><i class="fa fa-github" aria-hidden="true"></i>  vuejs/vuex-router-sync</a></h3>
+    </section>
+    <section>
+      <h2>Style Guide</h2>
+      <h3><a href="https://vuejs.org/v2/style-guide/"><i class="fa fa-globe" aria-hidden="true"></i>  vuejs.org/v2/style-guide/</a></h3>
+      <h3><a href="https://github.com/vuejs/eslint-plugin-vue"><i class="fa fa-github" aria-hidden="true"></i>  vuejs/eslint-plugin-vue</a></h3>
+    </section>
+    <section>
+      <h2>Resources</h2>
+      <h3><a href="https://github.com/vuejs/awesome-vue"><i class="fa fa-github" aria-hidden="true"></i> vuejs/awesome-vue</a></h3>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Smart vs. Dumb component</h2>
+    </section>
+    <section>
+      <h2>Smart vs. Dumb component</h2>          
+      <div class="fragment">
+        <p><b>Dumb components:</b></p>
+        <ul>
+          <li>Have no app dependencies</li>
+          <li>Receive only props, providing data and callbacks</li>
+        </ul>
+      </div>
+      <div class="fragment">
+        <p><b>Smart components (aka containers):</b></p>
+        <ul>
+          <li>Provide application data, do data fetching</li>
+          <li>Interact with state</li>
+        </ul>
+      </div>
+    </section>
+    <section data-transition="none">
+      <img src="./img/smart-dumb-1.png" alt="smart and dumb component" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <img src="./img/smart-dumb-2.png" alt="smart and dumb component" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <img src="./img/smart-dumb-3.png" alt="smart and dumb component" style="width: 80%;">
+    </section>
+  </section>
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: false,
+  progress: true,
+  slideNumber: true,
+  history: true,
+
+  transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+// Optional reveal.js plugins
+dependencies: [
+  { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+  { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+  { src: 'reveal.js/plugin/notes/notes.js', async: true }
+]
+});
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67868977-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<style>
+.reveal section img {
+  margin: 0; background:none; border: 0; box-shadow: none; 
+}
+button {
+  background-color: #2ba056;
+  color: #fff;
+  border-radius: .28571429rem;
+  padding: .78571429em 1.5em .78571429em;
+  border: 0;
+  font-weight: 700;
+  line-height: 1em;
+  cursor: pointer;
+  margin: 0 .25em 0 0;
+}
+
+.reveal pre code.hljs::selection,
+.reveal pre span::selection {
+  background: #DA81F5; /* WebKit/Blink Browsers */
+}
+
+.reveal pre code.hljs::-moz-selection,
+.reveal pre span::-moz-selection {
+  background: #DA81F5; /* Gecko Browsers */
+}
+
+li.space {
+  margin-top: 15px;
+}
+input {
+  font-size: large;
+  width: 30%;
+  margin: 0;
+  max-width: 100%;
+  padding: .67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem;
+}
+input:focus {
+  border-color: #85b7d9;
+  background: #fff;
+  color: rgba(0,0,0,.8);
+  box-shadow: none;
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,148 @@
+[{
+  "name": "Happy Hostel",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3497910,
+    "lon": -6.2602241
+  },
+  "price": {
+    "amount": 12,
+    "currency": "€"
+  },
+  "description": "Laboriosam est doloremque et sunt iure. Tenetur fugiat non ut autem repellat qui qui. Tempore pariatur exercitationem tempora. Laborum ut qui sed enim recusandae voluptas voluptas rerum accusantium.",
+  "bonus": {
+    "hasFreeWifi": false,
+    "hasTv": false,
+    "hasFreeBreakfast": false,
+    "hasBar": true
+  },
+  "rating": 88,
+  "availability": true,
+  "isActive": true
+},{
+  "name": "WunderLand",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3418726,
+    "lon": -6.2867207
+  },
+  "price": {
+    "amount": 24,
+    "currency": "€"
+  },
+  "description": "Nulla vero eveniet autem perferendis. Esse est itaque esse assumenda odit enim. Perspiciatis non omnis fugit officia omnis quia distinctio consequatur voluptatem. Necessitatibus ipsa sunt autem ducimus facilis.",
+  "bonus": {
+    "hasFreeWifi": true,
+    "hasTv": true,
+    "hasFreeBreakfast": false,
+    "hasBar": true
+  },
+  "rating": 95,
+  "availability": true,
+  "isActive": true
+},{
+  "name": "Unknown Hostel",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3424751,
+    "lon": -6.2666733
+  },
+  "price": {
+    "amount": 24,
+    "currency": "€"
+  },
+  "description": "Repellat et aliquid sit ab nemo et qui veniam dignissimos. Ducimus explicabo ut. Error expedita commodi. Nihil in est voluptatem molestiae consequatur rerum ex.",
+  "bonus": {
+    "hasFreeWifi": true,
+    "hasTv": false,
+    "hasFreeBreakfast": false,
+    "hasBar": true
+  },
+  "rating": 77,
+  "availability": true,
+  "isActive": true
+},{
+  "name": "Medium Hostel",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3382231,
+    "lon": -6.2589837
+  },
+  "price": {
+    "amount": 5,
+    "currency": "€"
+  },
+  "description": "Aliquid id ad optio dignissimos modi.",
+  "bonus": {
+    "hasFreeWifi": false,
+    "hasTv": true,
+    "hasFreeBreakfast": false,
+    "hasBar": false
+  },
+  "rating": 54,
+  "availability": true,
+  "isActive": true
+},{
+  "name": "City Hostel",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3394395,
+    "lon": -6.2578436
+  },
+  "price": {
+    "amount": 37,
+    "currency": "€"
+  },
+  "description": "lorem ipsum.",
+  "bonus": {
+    "hasFreeWifi": true,
+    "hasTv": false,
+    "hasFreeBreakfast": false,
+    "hasBar": true
+  },
+  "rating": 68,
+  "availability": true,
+  "isActive": true
+},{
+  "name": "Central",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3439947,
+    "lon": -6.2559597
+  },
+  "price": {
+    "amount": 44,
+    "currency": "€"
+  },
+  "description": "lorem ipsum 2.",
+  "bonus": {
+    "hasFreeWifi": false,
+    "hasTv": false,
+    "hasFreeBreakfast": true,
+    "hasBar": true
+  },
+  "rating": 87,
+  "availability": true,
+  "isActive": true
+}, {
+  "name": "Good place",
+  "location": "Dublin",
+  "coords": {
+    "lat": 53.3429468,
+    "lon": -6.2546689
+  },
+  "price": {
+    "amount": 77,
+    "currency": "€"
+  },
+  "description": "lorem ipsum 3.",
+  "bonus": {
+    "hasFreeWifi": true,
+    "hasTv": false,
+    "hasFreeBreakfast": true,
+    "hasBar": false
+  },
+  "rating": 93,
+  "availability": true,
+  "isActive": true
+}]

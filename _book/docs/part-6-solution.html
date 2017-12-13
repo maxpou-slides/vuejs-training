@@ -1,0 +1,668 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 6: Vuex · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="part-5-solution.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Workshop introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="part-1.html">
+            
+                <a href="part-1.html">
+            
+                    
+                    Part 1: Playing with Vue Syntax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="part-2.html">
+            
+                <a href="part-2.html">
+            
+                    
+                    Part 2: Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="part-3.html">
+            
+                <a href="part-3.html">
+            
+                    
+                    Part 3: .vue file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="part-4.html">
+            
+                <a href="part-4.html">
+            
+                    
+                    Part 4: HTTP&Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="part-5.html">
+            
+                <a href="part-5.html">
+            
+                    
+                    Part 5: Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="part-6.html">
+            
+                <a href="part-6.html">
+            
+                    
+                    Part 6: Vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="part-7.html">
+            
+                <a href="part-7.html">
+            
+                    
+                    Part 7: Testing with Jest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Solutions
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="part-1-solution.html">
+            
+                <a href="part-1-solution.html">
+            
+                    
+                    Part 1: Playing with Vue Syntax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="part-2-solution.html">
+            
+                <a href="part-2-solution.html">
+            
+                    
+                    Part 2: Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="part-3-solution.html">
+            
+                <a href="part-3-solution.html">
+            
+                    
+                    Part 3: .vue file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="part-4-solution.html">
+            
+                <a href="part-4-solution.html">
+            
+                    
+                    Part 4: HTTP&Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="part-5-solution.html">
+            
+                <a href="part-5-solution.html">
+            
+                    
+                    Part 5: Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.6" data-path="part-6-solution.html">
+            
+                <a href="part-6-solution.html">
+            
+                    
+                    Part 6: Vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 6: Vuex</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-6-state-management-with-vuex---solution">Part 6: State management with Vuex - SOLUTION</h1>
+<p>Nothing specific here. Just follow the instructions.</p>
+<h2 id="step-12">Step 1&amp;2</h2>
+<p>Nothing specific here. Just follow the instructions.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// src/store/modules/hostelList.js</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> types <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../mutation-types&apos;</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> hostelApi <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../api/hostels&apos;</span>
+
+<span class="hljs-comment">// initial state</span>
+<span class="hljs-keyword">const</span> state = {
+  hostels: [],
+  userSearch: <span class="hljs-string">&apos;&apos;</span>,
+  onlyShowLiked: <span class="hljs-literal">false</span>,
+  likedHostels: []
+}
+
+<span class="hljs-comment">// getters</span>
+<span class="hljs-keyword">const</span> getters = {
+  hostelsShown: (state) =&gt; {
+    <span class="hljs-keyword">const</span> likeFilter = (hostel) =&gt; {
+      <span class="hljs-keyword">if</span> (state.onlyShowLiked) {
+        <span class="hljs-keyword">return</span> state.likedHostels.indexOf(hostel) !== <span class="hljs-number">-1</span>
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">return</span> state.hostels
+      .filter(likeFilter)
+      .filter(hostel =&gt; hostel.name.toLowerCase().includes(state.userSearch.toLowerCase()))
+  },
+  isLikedHostel: (state) =&gt; (hostel) =&gt; {
+    <span class="hljs-keyword">return</span> state.likedHostels.indexOf(hostel) !== <span class="hljs-number">-1</span>
+  }
+}
+
+<span class="hljs-comment">// actions</span>
+<span class="hljs-keyword">const</span> actions = {
+  loadHostels ({ commit }) {
+    hostelApi.getAll().then(data =&gt; {
+      commit(types.RECEIVE_HOSTELS, { data })
+    })
+  }
+}
+
+<span class="hljs-comment">// mutations</span>
+<span class="hljs-keyword">const</span> mutations = {
+  [types.RECEIVE_HOSTELS] (state, { data }) {
+    state.hostels = data
+  },
+  [types.TOGGLE_LIKE_HOSTEL] (state, hostel) {
+    <span class="hljs-keyword">if</span> (state.likedHostels.indexOf(hostel) === <span class="hljs-number">-1</span>) {
+      state.likedHostels.push(hostel)
+    } <span class="hljs-keyword">else</span> {
+      state.likedHostels.splice(state.likedHostels.indexOf(hostel), <span class="hljs-number">1</span>)
+    }
+  },
+  [types.LIKE_FILTER_CHANGE] (state) {
+    <span class="hljs-keyword">if</span> (state.onlyShowLiked === <span class="hljs-literal">false</span>) {
+      state.onlyShowLiked = <span class="hljs-literal">true</span>
+    } <span class="hljs-keyword">else</span> {
+      state.onlyShowLiked = <span class="hljs-literal">false</span>
+    }
+  },
+  [types.TEXT_FILTER_CHANGE] (state, newSearch) {
+    state.userSearch = newSearch
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  state,
+  getters,
+  actions,
+  mutations
+}
+</code></pre>
+<h2 id="step-3">Step 3</h2>
+<h3 id="appvue">App.vue</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui center aligned header&quot;</span>&gt;</span>HostelVue<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui container&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui fluid menu&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/list&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">active-class</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;grid layout icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> List<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/map&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">active-class</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;map icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> Map<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;onlyShowLiked ? &apos;red&apos; : &apos;grey&apos;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heart icon&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;LIKE_FILTER_CHANGE&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Only show liked hostels&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui transparent icon input&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Filter...&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;userSearch&quot;</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">&quot;updateSearchFilter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;search link icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { mapState, mapMutations, mapActions } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;app&apos;</span>,
+  computed: {
+    ...mapState({
+      userSearch: state =&gt; state.hostelList.userSearch,
+      onlyShowLiked: state =&gt; state.hostelList.onlyShowLiked
+    })
+  },
+  methods: {
+    ...mapMutations([
+      <span class="hljs-string">&apos;LIKE_FILTER_CHANGE&apos;</span>,
+      <span class="hljs-string">&apos;TEXT_FILTER_CHANGE&apos;</span>
+    ]),
+    ...mapActions([
+      <span class="hljs-string">&apos;loadHostels&apos;</span>
+    ]),
+    updateSearchFilter (e) {
+      <span class="hljs-keyword">this</span>.TEXT_FILTER_CHANGE(e.target.value)
+    }
+  },
+  mounted () {
+    <span class="hljs-keyword">this</span>.loadHostels()
+  }
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="hostellistvue">HostelList.vue</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui container&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui centered cards&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hostel-list-item</span>
+        <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;(hostel, index) in hostels&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;index&quot;</span>
+        <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.isActive&quot;</span>
+        <span class="hljs-attr">:hostel</span>=<span class="hljs-string">&quot;hostel&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">hostel-list-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { mapGetters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+<span class="hljs-keyword">import</span> HostelListItem <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./HostelListItem&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  components: {
+    HostelListItem
+  },
+  computed: {
+    ...mapGetters({
+      hostels: <span class="hljs-string">&apos;hostelsShown&apos;</span>
+    })
+  }
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="hostellistitemvue">HostelListItem.vue</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right floated meta&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;{ red: isLikedHostel(hostel) }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heart icon&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;TOGGLE_LIKE_HOSTEL(hostel)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span>{{ hostel.name }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;meta&quot;</span>&gt;</span>
+          {{ hostel.location }}
+          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.bonus.hasFreeWifi&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wifi icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.bonus.hasFreeBreakfast&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;coffee icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.bonus.hasTv&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;desktop icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.bonus.hasBar&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bar icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right floated meta&quot;</span>&gt;</span>
+              {{ hostel.price.amount }}{{ hostel.price.currency }}/night
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;description&quot;</span>&gt;</span>
+            {{ hostel.description }}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;hostel.availability&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui orange bottom attached button&quot;</span>&gt;</span>
+        Book now
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui bottom attached disabled button&quot;</span>&gt;</span>
+        Too late!
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { mapGetters, mapMutations } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  props: [<span class="hljs-string">&apos;hostel&apos;</span>],
+  computed: {
+    ...mapGetters([
+      <span class="hljs-string">&apos;isLikedHostel&apos;</span>
+    ])
+  },
+  methods: {
+    ...mapMutations([
+      <span class="hljs-string">&apos;TOGGLE_LIKE_HOSTEL&apos;</span>
+    ])
+  }
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="hostelmapvue">HostelMap.vue</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;map ui container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-comment">/* global google */</span>
+<span class="hljs-comment">/* eslint no-new: &quot;off&quot; */</span>
+<span class="hljs-keyword">import</span> { mapGetters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  data () {
+    <span class="hljs-keyword">return</span> {
+      map: {},
+      markers: []
+    }
+  },
+  computed: {
+    ...mapGetters({
+      hostels: <span class="hljs-string">&apos;hostelsShown&apos;</span>
+    })
+  },
+  <span class="hljs-comment">// ...</span>
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="part-5-solution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Part 5: Routing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 6: Vuex","level":"1.10.6","depth":2,"previous":{"title":"Part 5: Routing","level":"1.10.5","depth":2,"path":"docs/part-5-solution.md","ref":"./docs/part-5-solution.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ga"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-67868977-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/part-6-solution.md","mtime":"2017-12-13T14:09:33.092Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-13T14:10:45.943Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
